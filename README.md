@@ -23,6 +23,6 @@ This project aims to create a safer campus environment for all members of the Bi
 - [melis](http://github.com/melisatuun)
 - [arda](http://github.com/ardaicoz)
 - [onur](http://github.com/OnurVural)
-- [burak](http://github.com/)
+- [burak](http://github.com/burakozturk01)
 
 
