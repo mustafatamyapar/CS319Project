@@ -19,10 +19,10 @@ This project aims to create a safer campus environment for all members of the Bi
 * An alert when a non vaccinated person did not got their PCR test.
 
 ### Group Members
-- [mustafa](group/mustafa_log.md)
-- [melis](group/melis_log.md)
-- [arda](group/arda_log.md)
-- [onur](group/onur_log.md)
-- [burak](group/burak_log.md)
+- [mustafa](http://github.com/mustafatamyapar)
+- [melis](http://github.com/melisatuun)
+- [arda](http://github.com/ardaicoz)
+- [onur](http://github.com/OnurVural)
+- [burak](http://github.com/)
 
 
