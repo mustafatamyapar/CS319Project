@@ -1,6 +1,6 @@
 ### CS319  Term Project 
 ****
-## Group1F Lovelace
+## Group1G Lovelace
 ****
 
 ## Project Description
