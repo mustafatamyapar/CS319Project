@@ -6,11 +6,9 @@
 ## Project Description
 This project aims to create a safer campus environment for all members of the Bilkent University to maintain face to face education covid pandemic. We aim to create a web application that offers:
 
-* Managing HES code status of users.
-* Managing PCR status of users.
-* Managing Vaccine status of users.
+* Managing HES code,PCR status, Vaccine status status of users.
 * Showing Quarantine status of users.
-* There will be three type of users student, Instructor , staff.
+* Three type of users student, Instructor , staff.
 * Managing the status of users which is In-contact with covid positive persons.
 * Sending alerts to other students and instructors about covid positive persons.
 * Students will select which class they attend then instructors will be able to see is there a covid-positive or in contact person. 
