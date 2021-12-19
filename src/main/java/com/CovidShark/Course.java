@@ -25,10 +25,6 @@ public class Course {
         return courseName;
     }
 
-    public int getTotalPositiveStudent() {
-
-    }
-
     public Section getSection(String courseSection) {
 
     }

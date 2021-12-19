@@ -53,7 +53,6 @@ public class Student extends BaseUser {
 
     public void updateFormSymptoms() {
 
-        Form form = new Form();
     }
 
     public int getDorm(int dormNumber) {
