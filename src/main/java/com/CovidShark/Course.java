@@ -26,6 +26,6 @@ public class Course {
     }
 
     public Section getSection(String courseSection) {
-
+        return (Section) courseSections;
     }
 }

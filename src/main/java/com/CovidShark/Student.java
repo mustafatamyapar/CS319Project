@@ -52,7 +52,7 @@ public class Student extends BaseUser {
     }
 
     public void updateFormSymptoms() {
-
+        
     }
 
     public int getDorm(int dormNumber) {
@@ -95,7 +95,7 @@ public class Student extends BaseUser {
 
     public void acceptSwapRequest(int requestCode) {
 
-        swapRequests.add(requestCode);
+        //swapRequests.add(requestCode);
     }
 
     public void rejectAllSwapRequest() {
