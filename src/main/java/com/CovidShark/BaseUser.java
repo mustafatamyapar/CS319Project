@@ -1,5 +1,7 @@
 package main.java.com.CovidShark;
 
+import main.java.com.CovidShark.Notification;
+import main.java.com.CovidShark.HealthStatus;
 import java.util.List;
 import java.util.ListResourceBundle;
 

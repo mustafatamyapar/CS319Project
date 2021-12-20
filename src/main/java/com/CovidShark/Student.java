@@ -36,6 +36,7 @@ public class Student extends BaseUser {
         return about;
     }
 
+
     public List<Course> getCoursesTaken() {
 
         return coursesTaken;
