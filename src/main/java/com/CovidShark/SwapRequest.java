@@ -1,22 +1,36 @@
-package main.java.com.CovidShark;
+package com.CovidShark;
 
-public class SwapRequest {
+import org.apache.logging.log4j.message.ReusableMessage;
+
+import java.util.List;
+
+public class SwapRequest extends Notification {
 
     private String seat;
     private Student seatOwner;
     private Student requester;
-    private int requestCode;
-    private int requestState;
+    private RequestState requestState;
     private Course course;
     private Section section;
-    private boolean notDone;
+
+    enum RequestState {
+        PENDING,
+        ACCEPTED,
+        REJECTED,
+        CANCELLED
+    }
+
+    public SwapRequest(String seat, Student seatOwner, Student requester, Section section) {
+        super();
+        this.seat = seat;
+        this.seatOwner = seatOwner;
+        this.requester = requester;
+        this.requestState = RequestState.PENDING;
+        this.section = section;
+    }
 
     public String getSeat() {
         return seat;
-    }
-
-    public int getRequestCode() {
-        return requestCode;
     }
 
     public Student getRequester() {
@@ -33,7 +47,7 @@ public class SwapRequest {
         return seatOwner;
     }
 
-    public int getRequestState() {
+    public RequestState getRequestState() {
         return requestState;
     }
 
@@ -42,14 +56,22 @@ public class SwapRequest {
     }
 
     public void notifyUser(Student student, SwapRequest request) {
-
+        student.addNotification(request);
     }
 
     public void markAsDone() {
+        requestState = RequestState.ACCEPTED;
+    }
 
+    public void markAsCancelled() {
+        requestState = RequestState.CANCELLED;
+    }
+
+    public void markAsRejected() {
+        requestState = RequestState.REJECTED;
     }
 
     public void deleteFromStudent(Student student, int requestCode) {
-
+        student.deleteNotification(requestCode);
     }
 }

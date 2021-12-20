@@ -1,4 +1,4 @@
-package main.java.com.CovidShark;
+package com.CovidShark;
 
 import java.util.List;
 

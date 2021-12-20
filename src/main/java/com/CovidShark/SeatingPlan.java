@@ -1,14 +1,18 @@
-package main.java.com.CovidShark;
-import main.java.com.CovidShark.Student;
+package com.CovidShark;
+
 public class SeatingPlan {
 
     private int rowNum;
     private int columnNum;
     private Student[][] seats;
     private char[] columnRepresentation = "ABCDEFGHIJKLMNOQRSTUVQXYZ".toCharArray();
+
     public SeatingPlan(int rowNum, int columnNum){
+        this.rowNum = rowNum;
+        this.columnNum = columnNum;
         Student[][] seats = new Student[rowNum][columnNum];
     }
+
     public int getColumnNum() {
         return columnNum;
     }
@@ -16,7 +20,6 @@ public class SeatingPlan {
     public int getRowNum() {
         return rowNum;
     }
-
 
     private int getIndexColumn(String s){
         for (int i = 0; i < columnRepresentation.length; i++){

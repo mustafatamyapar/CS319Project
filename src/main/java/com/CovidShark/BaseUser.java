@@ -1,9 +1,7 @@
-package main.java.com.CovidShark;
+package com.CovidShark;
 
-import main.java.com.CovidShark.Notification;
-import main.java.com.CovidShark.HealthStatus;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.ListResourceBundle;
 
 public class BaseUser {
     private String idNumber;
@@ -16,17 +14,16 @@ public class BaseUser {
     private List<Appointment> appointments;
     private Appointment appointment;
 
-    public BaseUser(String idNumber, String name, String email, HealthStatus healthStatus,
-                    List<Notification> notifications, String phoneNumber, List<Appointment> appointments,
-                    Appointment appointment) {
+    public BaseUser(String idNumber, String name, String email, String phoneNumber) {
+
         this.idNumber = idNumber;
         this.name = name;
         this.email = email;
-        this.healthStatus = healthStatus;
-        this.notifications = notifications;
+        healthStatus = null;
+        this.notifications = new ArrayList<Notification>();
         this.phoneNumber = phoneNumber;
-        this.appointments = appointments;
-        this.appointment = appointment;
+        this.appointments = new ArrayList<Appointment>();
+        appointment = null;
     }
 
     public BaseUser() {
@@ -100,5 +97,33 @@ public class BaseUser {
 
     public HealthStatus getHealthStatus() {
         return healthStatus;
+    }
+
+    public void addNotification(Notification notification) {
+        notifications.add(notification);
+    }
+
+    public void deleteNotification(int notificationCode) {
+        for (int i = 0; i < notifications.size(); i++) {
+            if (notifications.get(i).getNotificationCode() == notificationCode) {
+                notifications.remove(i);
+            }
+        }
+    }
+
+    public void setHealthStatus(HealthStatus healthStatus) {
+        this.healthStatus = healthStatus;
+    }
+
+    public void setAppointments(List<Appointment> appointments) {
+        this.appointments = appointments;
+    }
+
+    public void setNotifications(List<Notification> notifications) {
+        this.notifications = notifications;
+    }
+
+    public void setAppointment(Appointment appointment) {
+        this.appointment = appointment;
     }
 }

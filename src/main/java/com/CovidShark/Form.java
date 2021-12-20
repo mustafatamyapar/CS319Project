@@ -1,5 +1,6 @@
-package main.java.com.CovidShark;
+package com.CovidShark;
 
+import java.util.Date;
 import java.util.List;
 
 public class Form {
@@ -8,8 +9,13 @@ public class Form {
     private int symptomNumber;
     private Date date;
 
+    public Form(List<Question> questions, int symptomNumber, Date date) {
+        this.questions = questions;
+        this.symptomNumber = symptomNumber;
+        this.date = date;
+    }
 
-    public void getSymptomNumber() {
-
+    public int getSymptomNumber() {
+        return symptomNumber;
     }
 }

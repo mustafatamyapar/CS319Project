@@ -1,4 +1,4 @@
-package main.java.com.CovidShark;
+package com.CovidShark;
 
 public class VisitedRoom {
 
@@ -6,6 +6,13 @@ public class VisitedRoom {
     private int floor;
     private String roomName;
     private String usedHours;
+
+    public VisitedRoom(String building, int floor, String roomName, String usedHours) {
+        this.building = building;
+        this.floor = floor;
+        this.roomName = roomName;
+        this.usedHours = usedHours;
+    }
 
     public String getBuilding() {
         return building;

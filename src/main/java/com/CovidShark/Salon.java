@@ -1,4 +1,6 @@
-package main.java.com.CovidShark;
+package com.CovidShark;
+
+import java.util.Date;
 
 public class Salon {
 
@@ -6,6 +8,13 @@ public class Salon {
     private Date lastUsedTime;
     private int numberOfCurrentUsers;
     private int salonCapacity;
+
+    public Salon(String salonType, Date lastUsedTime, int numberOfCurrentUsers, int salonCapacity) {
+        this.salonType = salonType;
+        this.lastUsedTime = lastUsedTime;
+        this.numberOfCurrentUsers = numberOfCurrentUsers;
+        this.salonCapacity = salonCapacity;
+    }
 
     public String getSalonType() {
         return salonType;

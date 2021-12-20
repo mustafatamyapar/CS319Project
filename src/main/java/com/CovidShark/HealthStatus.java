@@ -1,5 +1,6 @@
-package main.java.com.CovidShark;
+package com.CovidShark;
 
+import java.util.Date;
 import java.util.List;
 
 public class HealthStatus {
@@ -37,7 +38,7 @@ public class HealthStatus {
         return vaccinationInfo;
     }
 
-    public boolean getCovidStatus() {
+    public boolean isCovid() {
         return covidStatus;
     }
 

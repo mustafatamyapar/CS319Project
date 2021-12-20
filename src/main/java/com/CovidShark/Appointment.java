@@ -1,4 +1,6 @@
-package main.java.com.CovidShark;
+package com.CovidShark;
+
+import java.util.Date;
 
 public class Appointment {
 
