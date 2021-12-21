@@ -7,7 +7,7 @@ public class Instructor extends BaseUser {
     private List<Course> coursesGiven;
     private List<Section> sectionsGiven;
 
-    public Instructor(String idNumber, String name, String email, String phoneNumber, List<Course> coursesGiven) {
+    public Instructor(String idNumber, String name, String email, String phoneNumber) {
         super(idNumber, name, email, phoneNumber);
         this.coursesGiven = new ArrayList<Course>();
         this.sectionsGiven = new ArrayList<Section>();

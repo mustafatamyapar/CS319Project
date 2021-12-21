@@ -10,6 +10,14 @@ public class Dormitory {
     private List<Student> students;
     private int floorCovidCount;
 
+    public Dormitory(int dormNumber, List<Floor> floors, int noOfFloor, List<Student> students) {
+        this.dormNumber = dormNumber;
+        this.floors = floors;
+        this.noOfFloor = noOfFloor;
+        this.students = students;
+        this.floorCovidCount = 0;
+    }
+
     public int getFloorCovidInfo(int floorNumber) {
         for (int i = 0; i < floors.size(); i++) {
             if (floors.get(i).getFloorNumber() == floorNumber) {
@@ -19,9 +27,19 @@ public class Dormitory {
         return floorCovidCount;
     }
 
-    /*
-    public List<Student> getStudents(int dormNumber) {
-
+    public List<Student> getStudents() {
+        return students;
     }
-    */
+
+    public void addStudent(Student s) {
+        students.add(s);
+    }
+
+    public void removeStudent(String idNumber) {
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).getIdNumber() == idNumber)
+                students.remove(i);
+        }
+    }
 }
+

@@ -9,6 +9,13 @@ public class Course {
     private List<Section> courseSections;
     private Instructor courseCoordinator;
 
+    public Course(String courseName, String courseCode, List<Section> courseSections, Instructor courseCoordinator) {
+        this.courseName = courseName;
+        this.courseCode = courseCode;
+        this.courseSections = courseSections;
+        this.courseCoordinator = courseCoordinator;
+    }
+
     public Instructor getCourseCoordinator() {
         return courseCoordinator;
     }

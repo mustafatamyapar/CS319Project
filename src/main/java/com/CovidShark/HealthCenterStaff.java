@@ -4,7 +4,13 @@ import java.util.List;
 
 public class HealthCenterStaff extends BaseUser {
     private List<Appointment> appointmentRequests;
-/*
+
+    public HealthCenterStaff(String idNumber, String name, String email, String phoneNumber, List<Appointment> appointmentRequests) {
+        super(idNumber, name, email, phoneNumber);
+        this.appointmentRequests = appointmentRequests;
+    }
+
+    /*
     public BaseUser getUserById(int ID)
     {
 
