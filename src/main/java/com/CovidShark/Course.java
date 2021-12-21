@@ -25,7 +25,13 @@ public class Course {
         return courseName;
     }
 
-    public Section getSection(String courseSection) {
-        return (Section) courseSections;
+    public Section getSection(String sectionNo) {
+        Section sec = null;
+        for (int i = 0; i < courseSections.size(); i++) {
+            if (courseSections.get(i).getSectionNo() == sectionNo) {
+                sec = courseSections.get(i);
+            }
+        }
+        return sec;
     }
 }

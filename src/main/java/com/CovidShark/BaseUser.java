@@ -24,6 +24,7 @@ public class BaseUser {
         this.phoneNumber = phoneNumber;
         this.appointments = new ArrayList<Appointment>();
         appointment = null;
+        this.password = null;
     }
 
     public BaseUser() {
@@ -42,7 +43,7 @@ public class BaseUser {
     }
 
     public void setName(String name) {
-        name = name;
+        this.name = name;
     }
 
     public String getEmail() {
@@ -50,7 +51,7 @@ public class BaseUser {
     }
 
     public void setEmail(String email) {
-        email = email;
+        this.email = email;
     }
 
     public String getPassword() {
@@ -58,7 +59,7 @@ public class BaseUser {
     }
 
     public void setPassword(String password) {
-        password = password;
+        this.password = password;
     }
 
     public HealthStatus getHealthStatus(String idNumber) {

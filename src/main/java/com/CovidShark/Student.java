@@ -57,8 +57,8 @@ public class Student extends BaseUser {
         return form;
     }
 
-    public int getDorm(int dormNumber) {
-        return dormNumber;
+    public Dormitory getDorm(int dormNumber) {
+        return dorm;
     }
 
     public List<Section> getSections() {

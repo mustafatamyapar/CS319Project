@@ -14,8 +14,8 @@ public class HealthStatus {
     private boolean campusPermission;
     private List<PCR> PCRHistory;
 
-    public void updateHESCode(String HESCode) {
-
+    public void updateHESCode(String HESCode, BaseUser user) {
+        user.getHealthStatus().setHESCode(HESCode);
     }
 
     public Date getQuarantineEndDate() {
@@ -30,6 +30,10 @@ public class HealthStatus {
         return HESCode;
     }
 
+    public void setHESCode(String HESCode) {
+        this.HESCode = HESCode;
+
+    }
     public List<PCR> getPCRHistory() {
         return PCRHistory;
     }

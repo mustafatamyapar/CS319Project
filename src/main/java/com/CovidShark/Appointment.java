@@ -19,4 +19,12 @@ public class Appointment {
     public String getDoctorName() {
         return doctorName;
     }
+
+   /*
+    public Appointment getAppointmentByCode(String appointmentCode, BaseUser user)
+    {
+        for(int i = 0; i < user.getAppointments())
+        user.getAppointments().get(i)
+    }
+    */
 }

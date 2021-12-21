@@ -17,22 +17,19 @@ public class Instructor extends BaseUser {
         return coursesGiven;
     }
 
-   // public List<Student> seeInfectedInClassroom(Course course, int sectionNo) {
-     //   List<Student> infected = new ArrayList<Student>();
-       // for (int i = 0; i < coursesGiven.size(); i++) {
-         //   if (coursesGiven.get(i).getHealthStatus().isCovid()) {
-             //   infected.add(coursesGiven.get(i));
-           // }
-      //  }
-  //      return infected;
- //   }
+    public List<Student> seeInfectedInClassroom(Course course, String sectionNo) {
 
- //   public Section addGivenSection() {
-   //     Section s = new Section();
-     //   return s;
-   // }
+        List<Student> infected;
+        infected = course.getSection(sectionNo).seeInfectedInSection();
+        return infected;
+    }
+
+  //  public Section addGivenSection() {
+  //      Section s = new Section();
+  //      return s;
+  //  }
 
   //  public Course addGivenCourse() {
-//
+  //
   //  }
 }
