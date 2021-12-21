@@ -9,12 +9,12 @@ public class Dormitory {
     private int noOfFloor;
     private List<Student> students;
 
-    public int getFloorCovidInfo(int floorNumber) {
+    //public int getFloorCovidInfo(int floorNumber) {
 
-    }
+    //}
 
-    public List<Student> getStudents(int dormNumber) {
+    //public List<Student> getStudents(int dormNumber) {
 
-    }
+    //}
 
 }

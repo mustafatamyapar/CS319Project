@@ -6,7 +6,7 @@ public class Gym {
 
     private List<Salon> salons;
 
-    public int getSalonUsers(String salonType) {
+  //  public int getSalonUsers(String salonType) {
 
-    }
+   // }
 }
