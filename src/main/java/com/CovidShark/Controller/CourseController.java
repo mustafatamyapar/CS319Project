@@ -1,19 +1,20 @@
 package com.CovidShark.Controller;
-
-import com.CovidShark.BaseUser;
 import com.CovidShark.Course;
 import com.CovidShark.service.CourseService;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.ExecutionException;
 
-
+@RestController()
+@RequestMapping
 public class CourseController {
     @GetMapping("/getCourseDetails")
-    public Course getCourse(@RequestHeader String courceCode)throws InterruptedException, ExecutionException {
+    public Course getCourse(@RequestHeader String courseCode)throws InterruptedException, ExecutionException {
 
-        return CourseService.getCourseDetails(courceCode);
+        return CourseService.getCourseDetails(courseCode);
     }
 
     @PostMapping("/createCourse")

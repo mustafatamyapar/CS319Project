@@ -16,8 +16,7 @@ public class Section {
     private List<Student> enrolledStudents;
 
     public Section(String sectionNo, Instructor instructor, int numberOfEnrolledStudents, int quota,
-                   SeatingPlan seatingPlan, String room, List<String> allLectureHours,
-                   List<Student> enrolledStudents) {
+                   SeatingPlan seatingPlan, String room, List<String> allLectureHours) {
 
         this.sectionNo = sectionNo;
         this.instructor = instructor;
@@ -26,7 +25,7 @@ public class Section {
         this.seatingPlan = seatingPlan;
         this.room = room;
         this.allLectureHours = allLectureHours;
-        this.enrolledStudents = enrolledStudents;
+        this.enrolledStudents = new ArrayList<Student>();
     }
 
     public String getSectionNo() {

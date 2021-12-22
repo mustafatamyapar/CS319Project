@@ -18,13 +18,13 @@ public class UserSignupService {
 
     public static String saveUserDetails(BaseUser baseUser) throws ExecutionException, InterruptedException {
         Firestore dbFirestore = FirestoreClient.getFirestore();
-        ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection("baseUsers").document(baseUser.getName()).set(baseUser);
+        ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection("baseUsers").document(baseUser.getIdNumber()).set(baseUser);
         return collectionsApiFuture.get().getUpdateTime().toString();
     }
 
-    public static BaseUser getUserDetails(String name) throws InterruptedException, ExecutionException {
+    public static BaseUser getUserDetails(String idNumber) throws InterruptedException, ExecutionException {
         Firestore db = FirestoreClient.getFirestore();
-        DocumentReference docRef = db.collection("baseUsers").document(name);
+        DocumentReference docRef = db.collection("baseUsers").document(idNumber);
         // asynchronously retrieve the document
         ApiFuture<DocumentSnapshot> future = docRef.get();
         // block on response
@@ -44,15 +44,15 @@ public class UserSignupService {
     public static String updateUserDetails(BaseUser baseUser) throws InterruptedException, ExecutionException{
 
         Firestore dbFireStore = FirestoreClient.getFirestore();
-        ApiFuture<WriteResult> collectionsApiFuture = dbFireStore.collection("baseUsers").document(baseUser.getName()).set(baseUser);
+        ApiFuture<WriteResult> collectionsApiFuture = dbFireStore.collection("baseUsers").document(baseUser.getIdNumber()).set(baseUser);
 
         return collectionsApiFuture.get().getUpdateTime().toString();
     }
 
-    public static String deleteUser(String name) throws InterruptedException, ExecutionException {
+    public static String deleteUser(String idNumber) throws InterruptedException, ExecutionException {
         Firestore db = FirestoreClient.getFirestore();
-        ApiFuture<WriteResult> writeResult = db.collection("baseUsers").document(name).delete();
-        return "Deleted User " + name;
+        ApiFuture<WriteResult> writeResult = db.collection("baseUsers").document(idNumber).delete();
+        return "Deleted User " + idNumber;
     }
 
 }
