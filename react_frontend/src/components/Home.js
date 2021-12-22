@@ -1,12 +1,12 @@
 import React from "react";
 import {Avatar,Box, Button, Container, Grid, Link, TextField, Typography} from '@mui/material';
-import MyCourses from '../images/pageIcons/my_courses_icon.png'
-import HealthStatus from '../images/pageIcons/health_status_logo.png'
-import DailyCheckForm from '../images/pageIcons/form_icon.png'
-import DormInfo from '../images/pageIcons/dorm.png'
-import RoomHistory from '../images/pageIcons/room_history_icon.png'
-import MyProfile from '../images/pageIcons/my_profile_icon.png'
-import GymInfo from '../images/pageIcons/gym.png'
+import MyCourses from '../images/pageIcons/myCoursesIcon.png'
+import HealthStatus from '../images/pageIcons/healthStatusIcon.png'
+import DailyCheckForm from '../images/pageIcons/formIcon.png'
+import DormInfo from '../images/pageIcons/dormIcon.png'
+import RoomHistory from '../images/pageIcons/roomHistoryIcon.png'
+import MyProfile from '../images/pageIcons/profileIcon.png'
+import GymInfo from '../images/pageIcons/gymIcon.png'
 
 // Components
 import Header from "./Header/Header.js";
