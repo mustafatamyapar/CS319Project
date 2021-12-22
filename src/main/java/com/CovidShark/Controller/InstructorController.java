@@ -18,17 +18,17 @@ public class InstructorController {
     }
 
     @PostMapping("/createInstructor")
-    public String postCourse(@RequestBody Instructor instructor) throws InterruptedException, ExecutionException {
+    public String postInstructor(@RequestBody Instructor instructor) throws InterruptedException, ExecutionException {
         return InstructorService.saveInstructorDetails(instructor);
     }
 
     @PutMapping("/updateInstructor")
-    public String putCourse(@RequestBody Instructor instructor) throws ExecutionException, InterruptedException {
+    public String putInstructor(@RequestBody Instructor instructor) throws ExecutionException, InterruptedException {
         return InstructorService.updateInstructorDetails(instructor);
     }
 
     @DeleteMapping("/deleteInstructor")
-    public String deleteCourse(@RequestHeader String idnumber) throws InterruptedException, ExecutionException {
+    public String deleteInstructor(@RequestHeader String idnumber) throws InterruptedException, ExecutionException {
         return InstructorService.deleteInstructor(idnumber);
     }
 
