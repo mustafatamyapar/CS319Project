@@ -1,13 +1,12 @@
-import './App.css';
+import React from "react";
+import {BrowserRouter as Router/*, Routes, Route*/} from "react-router-dom";
+
+// Styles
 
 const App = () => (
-    <div className="App">
-        <header className="App-header">
-            <p>
-                Everything started in this blank, dark page. Melo bad.
-            </p>
-        </header>
-    </div>
+    <Router>
+		<div>Something</div>
+	</Router>
 );
 
 export default App;
