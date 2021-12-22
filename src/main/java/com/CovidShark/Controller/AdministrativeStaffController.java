@@ -24,7 +24,7 @@ public class AdministrativeStaffController {
     }
 
     @DeleteMapping("/deleteAdministrativeStaff")
-    public String deleteCourse(@RequestHeader AdministrativeStaff staff)throws InterruptedException, ExecutionException{
+    public String deleteAdministrativeStaff(@RequestHeader AdministrativeStaff staff)throws InterruptedException, ExecutionException{
         return AdministrativeStaffService.deleteAdministrativeStaff(staff);
     }
 }

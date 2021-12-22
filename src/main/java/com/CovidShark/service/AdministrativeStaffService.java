@@ -47,7 +47,7 @@ public class AdministrativeStaffService {
     public static String deleteAdministrativeStaff(AdministrativeStaff staff) throws InterruptedException, ExecutionException {
         Firestore db = FirestoreClient.getFirestore();
         ApiFuture<WriteResult> writeResult = db.collection("administrativeStaff").document(String.valueOf(staff)).delete();
-        return "Deleted user " + staff;
+        return "Deleted administrative staff " + staff;
     }
 
 }
