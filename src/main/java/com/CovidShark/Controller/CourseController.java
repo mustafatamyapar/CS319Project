@@ -12,9 +12,9 @@ import java.util.concurrent.ExecutionException;
 @RequestMapping
 public class CourseController {
     @GetMapping("/getCourseDetails")
-    public Course getCourse(@RequestHeader String courceCode)throws InterruptedException, ExecutionException {
+    public Course getCourse(@RequestHeader String courseCode)throws InterruptedException, ExecutionException {
 
-        return CourseService.getCourseDetails(courceCode);
+        return CourseService.getCourseDetails(courseCode);
     }
 
     @PostMapping("/createCourse")
