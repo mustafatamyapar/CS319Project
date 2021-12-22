@@ -26,7 +26,7 @@ public class Student extends BaseUser {
 
 
     public Student(String idNumber, String name, String email, String phoneNumber, String about,
-                   List<Course> coursesTaken, List<Section> sections, List<SwapRequest> swapRequests) {
+                   List<Course> coursesTaken, List<Section> sections) {
 
         super(idNumber, name, email, phoneNumber);
         this.about = about;
@@ -37,7 +37,6 @@ public class Student extends BaseUser {
         formSymptomNumber = 0;
         this.sections = sections;
         seats = null;
-        this.swapRequests = new ArrayList<SwapRequest>();
         prizePoint = 0;
     }
 
