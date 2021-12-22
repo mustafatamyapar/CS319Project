@@ -19,7 +19,17 @@ const Home = () => {
     return (
         <>
             <Header/>
-            <Grid
+            
+			<Box
+                sx={{
+                    marginTop: 10,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                }}>
+            </Box> 
+			
+			<Grid
                 container
                 spacing = {12}
                 direction="row"
@@ -61,7 +71,16 @@ const Home = () => {
                     </Button>
                 </Grid>                
             </Grid>
-
+				
+			<Box
+                sx={{
+                    marginTop: 20,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                }}>
+            </Box> 	
+			
             <Grid
                 container
                 spacing = {12}
