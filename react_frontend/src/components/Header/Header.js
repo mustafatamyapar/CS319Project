@@ -93,17 +93,14 @@ const ResponsiveAppBar = () => {
                     {/*One button to show all the page names*/}
                     <Box justifyContent="flex-end" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
-                            <>
-                                <Link to={page === "Home" ? "/"
+                            <Button
+                                href={page === "Home" ? "/"
                                     : ((page === "Logout") ? "/login"
-                                        : "/*")}>
-                                    <Button
-                                        key={page}
-                                        onClick={handleCloseNavMenu}
-                                        sx={{ my: 2, color: 'black', display: 'block' }} > {page}
-                                    </Button>
-                                </Link>
-                            </>
+                                        : "/*")}
+                                key={page}
+                                onClick={handleCloseNavMenu}
+                                sx={{ my: 2, color: 'black', display: 'block' }} > {page}
+                            </Button>
                             ))
                         }
                     </Box>
