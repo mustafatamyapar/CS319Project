@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Box,Paper,Grid,TextField,Typography,Button,Link,Avatar,Container} from '@mui/material';
+import {Box, Button, Container, Grid, Link, TextField, Typography} from '@mui/material';
 import Image from '../../../images/logo.png'
 
-export default function Login() {
+const SignUp = () => {
   return (
     <Container component="main" maxWidth="xs" >
       <Box
@@ -12,7 +12,7 @@ export default function Login() {
           flexDirection: 'column',
           alignItems: 'center',
         }}>
-        <img src={Image} /> 
+        <img src={Image} alt="image"/>
       </Box>
       
       <Grid
@@ -53,7 +53,7 @@ export default function Login() {
           </Button>
         </Grid>
         <Grid item>
-          <Link href="#" variant="body2">
+          <Link href="/login" variant="body2">
             Already have an account? Log In.
           </Link>
         </Grid>
@@ -62,3 +62,4 @@ export default function Login() {
     </Container>
   );
 }
+export default SignUp;

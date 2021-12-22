@@ -1,10 +1,8 @@
 import * as React from 'react';
-import {Box,Paper,Grid,TextField,Typography,Button,Link,Avatar,Container} from '@mui/material';
-import Image from '../../../images/logo'
-import { typography } from '@mui/system';
-import { ThemeProvider } from 'styled-components';
+import {Box, Button, Container, Grid, Link, TextField, Typography} from '@mui/material';
+import Image from '../../../images/logo.png'
 
-export default function ForgotPassword() {
+const ForgotPassword = () => {
   return (
     <Container component="main" maxWidth="xs" >
       <Box
@@ -14,7 +12,7 @@ export default function ForgotPassword() {
           flexDirection: 'column',
           alignItems: 'center',
         }}>
-        <img src={Image} /> 
+        <img src={Image} alt="image"/>
       </Box>
       
       <Grid
@@ -43,7 +41,7 @@ export default function ForgotPassword() {
           </Button>
         </Grid>
         <Grid item>
-          <Link href="#" variant="body1">
+          <Link href="login" variant="body1">
             Back to Log In Page
           </Link>
         </Grid>
@@ -51,3 +49,5 @@ export default function ForgotPassword() {
     </Container>
   );
 }
+
+export default ForgotPassword;
