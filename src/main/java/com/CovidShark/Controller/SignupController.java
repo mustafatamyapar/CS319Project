@@ -13,10 +13,12 @@ public class SignupController {
 
 
     public boolean signup(){
+
         return true;
     }
 
     public boolean login(){
+
         return true;
     }
 
