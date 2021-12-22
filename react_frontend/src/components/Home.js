@@ -1,5 +1,5 @@
 import React from "react";
-import {Avatar,Box, Button, Container, Grid, Link, TextField, Typography} from '@mui/material';
+import {Avatar, Button, Grid, Box} from '@mui/material';
 import MyCourses from '../images/pageIcons/myCoursesIcon.png'
 import HealthStatus from '../images/pageIcons/healthStatusIcon.png'
 import DailyCheckForm from '../images/pageIcons/formIcon.png'
@@ -35,7 +35,7 @@ const Home = () => {
                 direction="row"
                 justifyContent="space-evenly"
                 alignItems="flex-end"
-                style={{minHeight:'50vh'}}>
+                style={{minHeight:'35vh'}}>
                 
                 <Grid item>
                     <Button
@@ -87,7 +87,7 @@ const Home = () => {
                 direction="row"
                 justifyContent="space-evenly"
                 alignItems="flex-end"
-                style={{minHeight:'40vh'}}>
+                style={{minHeight:'30vh'}}>
                 
                 <Grid item>
                     <Button
