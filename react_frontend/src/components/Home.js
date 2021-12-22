@@ -1,7 +1,7 @@
 import React from "react";
 
 // Components
-import Header from "./Header";
+import Header from "./Header/Header.js";
 
 // Hooks
 
@@ -20,54 +20,6 @@ const Home = () => {
     return (
         <>
             <Header/>
-            <Wrapper>
-                <Content>
-                    <PageButton>
-                        <Icon src={MyCoursesIcon}/>
-                        <div>
-                            My Courses
-                        </div>
-                    </PageButton>
-                    <PageButton>
-                        <Icon src={HealthStatusIcon}/>
-                        <div>
-                            Health Status
-                        </div>
-                    </PageButton>
-                    <PageButton>
-                        <Icon src={FormIcon}/>
-                        <div>
-                            Daily Check Form
-                        </div>
-                    </PageButton>
-                </Content>
-                <Content>
-                    <PageButton>
-                        <Icon src={DormIcon}/>
-                        <div>
-                            Dorm Info
-                        </div>
-                    </PageButton>
-                    <PageButton>
-                        <Icon src={RoomHistoryIcon}/>
-                        <div>
-                            Room Info
-                        </div>
-                    </PageButton>
-                    <PageButton>
-                        <Icon src={MyProfileIcon}/>
-                        <div>
-                            My Profile
-                        </div>
-                    </PageButton>
-                    <PageButton>
-                        <Icon src={GymIcon}/>
-                        <div>
-                            Gym Info
-                        </div>
-                    </PageButton>
-            </Content>
-            </Wrapper>
         </>
     );
 }
