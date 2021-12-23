@@ -3,46 +3,101 @@ package com.CovidShark;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class Student extends BaseUser {
+
     private String about;
-    private List<Course> coursesTaken;
+    private int formSymptomNumber;
+    private int prizePoints;
+
     private Dormitory dorm;
     private Form form;
-    private List<VisitedRoom> roomHistory;
-    private int formSymptomNumber;
+
+    private List<Course> coursesTaken;
     private List<Section> sections;
-    private List<String> seats;
+    private List<VisitedRoom> roomHistory;
     private List<SwapRequest> swapRequests;
-    private int prizePoint;
-    private String idNumber;
-    private String name;
-    private String email;
-    private String password;
-    private HealthStatus healthStatus;
-    private List<Notification> notifications;
-    private String phoneNumber;
-    private List<Appointment> appointments;
-    private Appointment appointment;
+    //private List<String> seats;
 
 
-    public Student(String idNumber, String name, String email, String phoneNumber, String about,
-                   List<Course> coursesTaken, List<Section> sections) {
+
+
+
+    public Student(String idNumber, String name, String email, String phoneNumber) {
 
         super(idNumber, name, email, phoneNumber);
-        this.about = about;
-        this.coursesTaken = coursesTaken;
-        dorm = null;
-        form = null;
-        roomHistory = null;
+        this.about = "Hey I'm a student at Bilkent University";
         formSymptomNumber = 0;
-        this.sections = sections;
-        seats = null;
-        prizePoint = 0;
+        prizePoints = 0;
+
+        dorm = null;
+        form = new Form();
+
+        coursesTaken = new ArrayList<Course>();
+        sections = new ArrayList<Section>();
+        roomHistory = null;
+
+        swapRequests = new ArrayList<SwapRequest>();
+        //seats = null;
+
     }
 
+    // basic operations
     public String getAbout() {
         return about;
     }
+    public void setAbout(String aboutMeDescription) {
+        about = aboutMeDescription;
+    }
+
+    public boolean usePrizePoints(int pricePoint){
+        if (prizePoints <= pricePoint){
+            prizePoints = prizePoints - pricePoint;
+            return true;
+        }
+        return false;
+    }
+
+    // form operations
+    public void answerQuestion(boolean answer, int questionNum){
+        form.answerQuestion(answer, questionNum);
+    }
+
+    public boolean submitForm() {
+        if (form.answeredAll()){
+            formSymptomNumber = formSymptomNumber + form.getSymptomNumber();
+            prizePoints = prizePoints + 5;
+            form.resetForm();
+            return true;
+        }
+        return false;
+    }
+
+    // resetting formSymptomNumber to zero after 5 days
+    // request pcr test after ... days
+
+
+
+
+
+
+
+
+
+
+
+    // dorm operations
+    // section op
+    // course op
+    // room history op
+    public void setDorm(Dormitory dorm){
+        this.dorm = dorm;
+    }
+    public Dormitory getDorm(int dormNumber) {
+        return dorm;
+    }
+
 
     public List<Course> getCoursesTaken() {
         return coursesTaken;
@@ -52,21 +107,14 @@ public class Student extends BaseUser {
         return dorm == null;
     }
 
-    public Form getForm() {
-        return form;
-    }
 
-    public Dormitory getDorm(int dormNumber) {
-        return dorm;
-    }
+
+
 
     public List<Section> getSections() {
         return sections;
     }
 
-    public List<String> getSeats() {
-        return seats;
-    }
 
     public String getCourse(String courseCode) {
         return courseCode;
@@ -81,7 +129,7 @@ public class Student extends BaseUser {
 
         Section currentSec = getSection(courseSection);
         Student s = currentSec.getSeatingPlan().getStudent(seatNo);
-        SwapRequest request = new SwapRequest(seatNo, s, requester, currentSec);
+        SwapRequest request = new SwapRequest(seatNo, s, this, currentSec);
         swapRequests.add(request);
         return request;
     }
@@ -114,7 +162,7 @@ public class Student extends BaseUser {
     }
 
     public int getPrizePoint() {
-        return prizePoint;
+        return prizePoints;
     }
 
     public void addRoomToHistory(VisitedRoom room) {
@@ -122,12 +170,10 @@ public class Student extends BaseUser {
     }
 
     public void submitRoomHistory() {
-        prizePoint = prizePoint + 10;
+        prizePoints = prizePoints + 10;
     }
 
-    public void submitForm() {
-        prizePoint = prizePoint + 5;
-    }
+
 
     public SwapRequest getSwapRequest(int code) {
         for (int i = 0; i < swapRequests.size(); i++) {

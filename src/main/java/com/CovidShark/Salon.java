@@ -9,26 +9,32 @@ public class Salon {
     private int numberOfCurrentUsers;
     private int salonCapacity;
 
-    public Salon(String salonType, Date lastUsedTime, int numberOfCurrentUsers, int salonCapacity) {
+    public Salon(String salonType, int salonCapacity) {
         this.salonType = salonType;
-        this.lastUsedTime = lastUsedTime;
-        this.numberOfCurrentUsers = numberOfCurrentUsers;
+        lastUsedTime = null;
+        numberOfCurrentUsers = 0;
         this.salonCapacity = salonCapacity;
     }
 
     public String getSalonType() {
         return salonType;
     }
-
-    public int getNumberOfCurrentUsers() {
-        return numberOfCurrentUsers;
-    }
+    public int getSalonCapacity() {return salonCapacity;}
 
     public Date getLastUsedTime() {
         return lastUsedTime;
     }
+    public int getNumberOfCurrentUsers() {
+        return numberOfCurrentUsers;
+    }
 
-    public int getSalonCapacity() {
-        return salonCapacity;
+    public void usedBy(BaseUser user){
+        numberOfCurrentUsers++;
+        lastUsedTime = java.util.Calendar.getInstance().getTime();
+    }
+
+    public void userLeftSalon(BaseUser user){
+        numberOfCurrentUsers--;
+        lastUsedTime = java.util.Calendar.getInstance().getTime();
     }
 }

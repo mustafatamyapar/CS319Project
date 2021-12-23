@@ -1,6 +1,7 @@
 package com.CovidShark;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Course {
 
@@ -19,26 +20,52 @@ public class Course {
     public Instructor getCourseCoordinator() {
         return courseCoordinator;
     }
+    public void setCourseCoordinator(Instructor courseCoordinator) {
+        this.courseCoordinator = courseCoordinator;
+    }
+
+    // No setter methods since those cannot be changed after crreation!!!
+    public String getCourseCode() {
+        return courseCode;
+    }
+    public String getCourseName() {
+        return courseName;
+    }
+
+    // Section operations
+    public Section getSection(String sectionNo) {
+        for (int i = 0; i < courseSections.size(); i++) {
+            if (Objects.equals(courseSections.get(i).getSectionNo(), sectionNo)) {
+                return courseSections.get(i);
+            }
+        }
+        return null;
+    }
 
     public List<Section> getCourseSections() {
         return courseSections;
     }
 
-    public String getCourseCode() {
-        return courseCode;
-    }
 
-    public String getCourseName() {
-        return courseName;
-    }
-
-    public Section getSection(String sectionNo) {
-        Section sec = null;
+    public boolean addSection(Section section) {
         for (int i = 0; i < courseSections.size(); i++) {
-            if (courseSections.get(i).getSectionNo() == sectionNo) {
-                sec = courseSections.get(i);
+            if (Objects.equals(courseSections.get(i).getSectionNo(), section.getSectionNo())) {
+                return false;
             }
         }
-        return sec;
+        courseSections.add(section);
+        return true;
     }
+
+    public boolean removeSection(String sectionNo){
+        for (int i = 0; i < courseSections.size(); i++) {
+            if (Objects.equals(courseSections.get(i).getSectionNo(), sectionNo)) {
+                courseSections.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 }

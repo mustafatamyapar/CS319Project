@@ -25,76 +25,70 @@ public class HealthStatus {
         this.campusPermission = false;
         this.PCRHistory = new ArrayList<PCR>();
     }
-
-    public void updateHESCode(String HESCode, BaseUser user) {
-        user.getHealthStatus().setHESCode(HESCode);
+    // HES Code operations
+    public void setHESCode(String HESCode) {
+        this.HESCode = HESCode;
     }
-
-    public Date getQuarantineEndDate() {
-        return quarantineEndDate;
-    }
-
-    public int getQuarantineDay() {
-        return quarantineDay;
-    }
-
     public String getHESCode() {
         return HESCode;
     }
 
-    public void setHESCode(String HESCode) {
-        this.HESCode = HESCode;
-
-    }
-    public List<PCR> getPCRHistory() {
-        return PCRHistory;
-    }
-
-    public List<Vaccine> getVaccinationInfo() {
-        return vaccinationInfo;
-    }
-
+    // Covid status operations
+    public void setCovidStatus(boolean covidStatus) {this.covidStatus = covidStatus;}
     public boolean isCovid() {
         return covidStatus;
     }
 
-    public boolean getQuarantineStatus() {
+    // vaccinationInfo operations
+    public List<Vaccine> getVaccinationInfo() {
+        return vaccinationInfo;
+    }
+    public void setVaccinationInfo(List<Vaccine> vaccinationInfo) {
+        this.vaccinationInfo = vaccinationInfo;
+    }
+    public void addNewVaccination(Vaccine vaccine) {
+        vaccinationInfo.add(vaccine);
+    }
+
+    // quarantine operations
+    public void startQuarantine(int day, Date endDate){
+        quarantineStatus = true;
+        quarantineDay = day;
+        quarantineEndDate = endDate;
+    }
+
+    public void endQuarantine(){
+        quarantineStatus = false;
+        quarantineDay = 0;
+        quarantineEndDate = null;
+    }
+    public Date getQuarantineEndDate() {
+        return quarantineEndDate;
+    }
+    public int getQuarantineDay() {
+        return quarantineDay;
+    }
+    public boolean isInQuarantine() {
         return quarantineStatus;
     }
 
-    public boolean getCampusPermission() {
-        return campusPermission;
+    // PCRHistory operations
+    public void setPCRHistory(List<PCR> PCRHistory) {
+        this.PCRHistory = PCRHistory;
+    }
+    public List<PCR> getPCRHistory() {
+        return PCRHistory;
+    }
+    public void addNewPCRTest(PCR pcrTest) {
+       PCRHistory.add(pcrTest);
     }
 
+    // campusPermission operations
+    public boolean viewCampusPermission() {
+        return campusPermission;
+    }
     public void setCampusPermission(boolean campusPermission) {
         this.campusPermission = campusPermission;
     }
 
-    public void setCovidStatus(boolean covidStatus) {
-        this.covidStatus = covidStatus;
-    }
-
-    public void setPCRHistory(List<PCR> PCRHistory) {
-        this.PCRHistory = PCRHistory;
-    }
-
-    public void setQuarantineDay(int quarantineDay) {
-        this.quarantineDay = quarantineDay;
-    }
-
-    public void setQuarantineEndDate(Date quarantineEndDate) {
-        this.quarantineEndDate = quarantineEndDate;
-    }
-
-    public void setQuarantineStatus(boolean quarantineStatus) {
-        this.quarantineStatus = quarantineStatus;
-    }
-
-    public void setVaccinationInfo(List<Vaccine> vaccinationInfo) {
-        this.vaccinationInfo = vaccinationInfo;
-    }
-
-    public void addPCRHistory(PCR p) {
-        PCRHistory.add(p);
-    }
 }

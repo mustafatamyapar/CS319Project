@@ -2,6 +2,7 @@ package com.CovidShark;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Instructor extends BaseUser {
     private List<Course> coursesGiven;
@@ -13,23 +14,42 @@ public class Instructor extends BaseUser {
         this.sectionsGiven = new ArrayList<Section>();
     }
 
-    public List<Course> getCoursesList() {
+    public List<Course> getCoursesGiven() {
         return coursesGiven;
     }
 
-    public List<Student> seeInfectedInClassroom(Course course, String sectionNo) {
-
-        List<Student> infected;
-        infected = course.getSection(sectionNo).seeInfectedInSection();
-        return infected;
+    public void addCourse(Course courseGiven) {
+        coursesGiven.add(courseGiven);
     }
 
-  //  public Section addGivenSection() {
-  //      Section s = new Section();
-  //      return s;
-  //  }
+    public void setSectionsGiven(Section sectionGiven) {
+        sectionsGiven.add(sectionGiven);
+    }
 
-  //  public Course addGivenCourse() {
-  //
-  //  }
+    public List<Section> getSectionsGiven() {
+        return sectionsGiven;
+    }
+
+    public List<Student> seeInfectedInClassroom(String sectionNo) {
+
+        if (sectionExists(sectionNo)){
+            for (int i = 0; i < sectionsGiven.size(); i++){
+                if (Objects.equals(sectionsGiven.get(i).getSectionNo(), sectionNo))
+                    return sectionsGiven.get(i).seeInfectedInSection();
+            }
+        }
+        return null;
+    }
+
+
+
+    public boolean sectionExists(String sectionNo){
+        for (int i = 0; i < sectionsGiven.size(); i++){
+            if (Objects.equals(sectionsGiven.get(i).getSectionNo(), sectionNo))
+                return true;
+        }
+        return false;
+    }
+
+
 }

@@ -1,29 +1,30 @@
 package com.CovidShark;
 
+import java.util.Objects;
+
 public class SeatingPlan {
 
     private int rowNum;
     private int columnNum;
     private Student[][] seats;
-    private char[] columnRepresentation = "ABCDEFGHIJKLMNOQRSTUVQXYZ".toCharArray();
+    private String[] columnRepresentation = {"A", "B", "C", "D", "E", "F", "G","H", "I","J","K","L","M","N","O","Q","R","S","T","U","V","Q","X","Y","Z"};
 
     public SeatingPlan(int rowNum, int columnNum){
         this.rowNum = rowNum;
         this.columnNum = columnNum;
-        Student[][] seats = new Student[rowNum][columnNum];
+        seats = new Student[rowNum][columnNum];
     }
 
     public int getColumnNum() {
         return columnNum;
     }
-
     public int getRowNum() {
         return rowNum;
     }
 
     private int getIndexColumn(String s){
         for (int i = 0; i < columnRepresentation.length; i++){
-            if(columnRepresentation.equals(s))  {
+            if(columnRepresentation[i].equals(s))  {
                 return i;
             }
         }
@@ -33,7 +34,7 @@ public class SeatingPlan {
     public boolean hasSeat(Student student){
         for (int i = 0; i < rowNum; i++){
             for (int j = 0; j < columnNum; j++) {
-                if (seats[rowNum][columnNum] != null && seats[rowNum][columnNum].getIdNumber() == student.getIdNumber() )
+                if (seats[rowNum][columnNum] != null && Objects.equals(seats[rowNum][columnNum].getIdNumber(), student.getIdNumber()))
                     return true;
             }
         }
@@ -44,7 +45,7 @@ public class SeatingPlan {
     public String getSeat(Student student) {
         for (int i = 0; i < rowNum; i++){
             for (int j = 0; j < columnNum; j++) {
-                if (seats[rowNum][columnNum] != null && seats[rowNum][columnNum].getIdNumber() == student.getIdNumber() )
+                if (seats[rowNum][columnNum] != null && Objects.equals(seats[rowNum][columnNum].getIdNumber(), student.getIdNumber()))
                     return String.valueOf(rowNum + 1) + "-" + columnRepresentation[columnNum];
             }
         }
@@ -96,7 +97,7 @@ public class SeatingPlan {
     public boolean freeSeat(Student student) {
         for (int i = 0; i < rowNum; i++){
             for (int j = 0; j < columnNum; j++) {
-                if (seats[rowNum][columnNum] != null && seats[rowNum][columnNum].getIdNumber() == student.getIdNumber() ) {
+                if (seats[rowNum][columnNum] != null && Objects.equals(seats[rowNum][columnNum].getIdNumber(), student.getIdNumber())) {
                     seats[rowNum][columnNum] = null;
                     return true;
                 }

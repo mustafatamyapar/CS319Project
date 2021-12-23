@@ -21,7 +21,7 @@ public class SwapRequest extends Notification {
     }
 
     public SwapRequest(String seat, Student seatOwner, Student requester, Section section) {
-        super();
+        super(requester.getName() + "wants to have a swap for seat" + seat, "Swap Request", requester.getName());
         this.seat = seat;
         this.seatOwner = seatOwner;
         this.requester = requester;
@@ -33,44 +33,29 @@ public class SwapRequest extends Notification {
         return seat;
     }
 
-    public Student getRequester() {
-
-        return requester;
-    }
-
-    public Section getSection() {
-
-        return section;
-    }
-
+    public Student getRequester() {return requester;}
     public Student getSeatOwner() {
         return seatOwner;
     }
 
+    public Section getSection() {return section;}
     public RequestState getRequestState() {
         return requestState;
-    }
-
-    public Course getCourse(String courseCode) {
-        return course;
-    }
-
-    public void notifyUser(Student student, SwapRequest request) {
-        student.addNotification(request);
     }
 
     public void markAsDone() {
         requestState = RequestState.ACCEPTED;
     }
-
     public void markAsCancelled() {
         requestState = RequestState.CANCELLED;
     }
-
     public void markAsRejected() {
         requestState = RequestState.REJECTED;
     }
 
+    public void notifyUser(Student student, SwapRequest request) {
+        student.addNotification(this);
+    }
     public void deleteFromStudent(Student student, int requestCode) {
         student.deleteNotification(requestCode);
     }

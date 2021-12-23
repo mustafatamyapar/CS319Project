@@ -8,6 +8,24 @@ public class Appointment {
     private String doctorName;
     private String appointmentCode;
 
+    public Appointment(Date appointmentDate, String doctorName, String appointmentCode) {
+        this.appointmentDate = appointmentDate;
+        this.doctorName = doctorName;
+        this.appointmentCode = appointmentCode;
+    }
+
+    public void setAppointmentDate(Date appointmentDate) {
+        this.appointmentDate = appointmentDate;
+    }
+
+    public void setDoctorName(String doctorName) {
+        this.doctorName = doctorName;
+    }
+
+    public void setAppointmentCode(String appointmentCode) {
+        this.appointmentCode = appointmentCode;
+    }
+
     public Date getAppointmentDate() {
         return appointmentDate;
     }
