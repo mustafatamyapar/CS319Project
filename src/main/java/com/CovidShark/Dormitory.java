@@ -41,5 +41,9 @@ public class Dormitory {
                 students.remove(i);
         }
     }
+
+    public int getDormNumber() {
+        return dormNumber;
+    }
 }
 
