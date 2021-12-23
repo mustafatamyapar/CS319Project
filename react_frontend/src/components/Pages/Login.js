@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Box, Button, Container, Grid, Link, TextField, Typography} from '@mui/material';
-import Image from '../../../images/logo.png'
+import Image from '../../images/logo.png'
 
 function Copyright(props) {
     return (
