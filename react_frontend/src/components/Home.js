@@ -61,6 +61,7 @@ const Home = () => {
                 </Grid>
                 <Grid item>
                     <Button
+                        href={1 ? "/dailyform" : "/*"}
                         variant="outlined"
                         color = "secondary"
                         style={{ background: '#EFE9F4' }}

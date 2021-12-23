@@ -1,9 +1,10 @@
 import React from "react";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
-import Login from "./components/Pages/LogIn/Login";
-import SignUp from "./components/Pages/SignUp/SignUp"
-import ForgotPassword from "./components/Pages/ForgotPassword/ForgotPassword";
+import Login from "./components/Pages/Login";
+import SignUp from "./components/Pages/SignUp"
+import ForgotPassword from "./components/Pages/ForgotPassword";
+import DailyForm from "./components/Pages/DailyForm";
 
 import Home from "./components/Home";
 
@@ -18,6 +19,7 @@ const App = () => {
 				<Route path="/login" element={<Login/>}/>
 				<Route path="/signup" element={<SignUp/>}/>
 				<Route path="/forgotpassword" element={<ForgotPassword/>}/>
+				<Route path="/dailyform" element={<DailyForm/>}/>
 			</Routes>
 		</Router>
 	);
