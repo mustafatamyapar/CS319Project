@@ -1,5 +1,7 @@
 package com.CovidShark;
 
+import com.google.common.collect.EvictingQueue;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +12,7 @@ public class Student extends BaseUser {
     private String about;
     private int formSymptomNumber;
     private int prizePoints;
+    ArrayList< Form > consecutiveDays;
 
     private Dormitory dorm;
     private Form form;
@@ -40,6 +43,7 @@ public class Student extends BaseUser {
 
         swapRequests = new ArrayList<SwapRequest>();
         //seats = null;
+        consecutiveDays = new ArrayList<Form>();
 
     }
 
@@ -66,9 +70,28 @@ public class Student extends BaseUser {
 
     public boolean submitForm() {
         if (form.answeredAll()){
-            formSymptomNumber = formSymptomNumber + form.getSymptomNumber();
-            prizePoints = prizePoints + 5;
-            form.resetForm();
+            formSymptomNumber = 0;
+
+            consecutiveDays.add(new Form(java.util.Calendar.getInstance().getTime()));
+            if(consecutiveDays.size() <= 5)
+            {
+                for (int i = 0; i < consecutiveDays.size(); i++)
+                {
+                    formSymptomNumber = formSymptomNumber +  consecutiveDays.get(i).getSymptomNumber();
+                }
+                prizePoints = prizePoints + 5;
+               // form.resetForm();
+            }
+            else
+            {
+                consecutiveDays.remove(0);
+                for (int i = 0; i < consecutiveDays.size(); i++)
+                {
+                    formSymptomNumber = formSymptomNumber +  consecutiveDays.get(i).getSymptomNumber();
+                }
+                prizePoints = prizePoints + 5;
+              //  form.resetForm();
+            }
             return true;
         }
         return false;
@@ -76,50 +99,111 @@ public class Student extends BaseUser {
 
     // resetting formSymptomNumber to zero after 5 days
     // request pcr test after ... days
+    public int getCurrentSymptoms() {
+        return formSymptomNumber;
+    }
 
+    public void warnUser(){
 
+        if(consecutiveDays.get(0).)
 
-
-
-
-
-
-
-
+    }
 
     // dorm operations
-    // section op
-    // course op
-    // room history op
     public void setDorm(Dormitory dorm){
         this.dorm = dorm;
     }
     public Dormitory getDorm(int dormNumber) {
         return dorm;
     }
-
-
-    public List<Course> getCoursesTaken() {
-        return coursesTaken;
-    }
-
     public boolean isStudentInDorm() {
         return dorm == null;
     }
 
 
-
-
+    // section op
 
     public List<Section> getSections() {
         return sections;
     }
 
-
-    public String getCourse(String courseCode) {
-        return courseCode;
+    public Section getSection(String courseSection) {
+        for (int i = 0; i < sections.size(); i++) {
+            if (sections.get(i).getSectionNo().equals(courseSection)) {
+                return sections.get(i);
+            }
+        }
+        return null;
     }
 
+    public void setSections(List<Section> sections) {
+        this.sections = sections;
+    }
+
+    public void addSection(Section section){
+        sections.add(section);
+    }
+
+    public boolean removeSection(String sectionNo){
+        for (int i = 0; i < sections.size() ; i++)
+        {
+            if(sections.get(i).getSectionNo().equals(sectionNo)) {
+                sections.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
+    // course op
+    public List<Course> getCoursesTaken() {
+        return coursesTaken;
+    }
+
+    public void setCourses(List<Course> coursesTaken) {
+        this.coursesTaken = coursesTaken;
+    }
+
+    public Course getCourse(String courseCode) {
+        for(int i = 0 ; i < coursesTaken.size() ; i++)
+        {
+            if(coursesTaken.get(i).getCourseCode().equals(courseCode))
+            {
+                return coursesTaken.get(i);
+            }
+        }
+        return null;
+    }
+
+
+    public void addCourse(Course course){
+       coursesTaken.add(course);
+    }
+
+    public boolean removeCourse(String courseCode){
+        for (int i = 0; i < coursesTaken.size() ; i++)
+        {
+            if(coursesTaken.get(i).getCourseCode().equals(courseCode))
+            {
+                coursesTaken.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // room history op
+    public void addRoomToHistory(VisitedRoom room) {
+        roomHistory.add(room);
+    }
+
+    public void submitRoomHistory() {
+        prizePoints = prizePoints + 10;
+    }
+
+    //Swap op
     public void cancelSwapRequest(int requestCode) {
         swapRequests.remove(requestCode);
     }
@@ -132,15 +216,6 @@ public class Student extends BaseUser {
         SwapRequest request = new SwapRequest(seatNo, s, this, currentSec);
         swapRequests.add(request);
         return request;
-    }
-
-    public Section getSection(String courseSection) {
-        for (int i = 0; i < sections.size(); i++) {
-            if (sections.get(i).getSectionNo().equals(courseSection)) {
-                return sections.get(i);
-            }
-        }
-        return null;
     }
 
     public void rejectSwapRequest(int requestCode) {
@@ -165,13 +240,7 @@ public class Student extends BaseUser {
         return prizePoints;
     }
 
-    public void addRoomToHistory(VisitedRoom room) {
-        roomHistory.add(room);
-    }
 
-    public void submitRoomHistory() {
-        prizePoints = prizePoints + 10;
-    }
 
 
 

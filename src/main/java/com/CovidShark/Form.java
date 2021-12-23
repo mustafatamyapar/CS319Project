@@ -8,8 +8,9 @@ public class Form {
 
     private List<Question> questions;
     private int symptomNumber;
+    private Date formDate;
 
-    public Form() {
+    public Form(Date formDate) {
         // questions will be hard-coded!!!
         this.questions = new ArrayList<Question>();
         questions.add( new Question(1, "Fever"));
@@ -24,7 +25,16 @@ public class Form {
         questions.add( new Question(10, "Has anyone been diagnosed with Covid in your home?"));
         questions.add( new Question(11, "Has anyone been diagnosed with Covid in your neighbour?"));
 
+        this.formDate = formDate;
         symptomNumber = 0;
+    }
+
+    public Date getFormDate() {
+        return formDate;
+    }
+
+    public void setFormDate(Date formDate) {
+        this.formDate = formDate;
     }
 
     public void answerQuestion(boolean answer, int questionNum){
@@ -56,4 +66,6 @@ public class Form {
         for (int i = 0; i < questions.size(); i++)
             questions.get(i).resetQuestionStatus();
     }
+
+
 }
