@@ -10,7 +10,8 @@ import DailyFormDone from "./components/Pages/DailyFormDone";
 import Home from "./components/Home";
 import RoomHistory from "./components/Pages/RoomHistory";
 import DormInfo from "./components/Pages/DormInfo";
-import GymInfo from "./components/Pages/GymInfo";
+import GymInfo from "./components/Pages/GymInfo/GymInfo.js";
+import MainDormSports from "./components/Pages/GymInfo/MainDormSports";
 
 
 // Styles
@@ -28,6 +29,7 @@ const App = () => {
 				<Route path="/roomhistory" element={<RoomHistory userId={123}/>}/>
 				<Route path="/dorminfo" element={<DormInfo userType={"student"}/>}/>
 				<Route path="/gyminfo" element={<GymInfo/>}/>
+				<Route path="/maindormsports" element={<MainDormSports/>}/>
 			</Routes>
 		</Router>
 	);
