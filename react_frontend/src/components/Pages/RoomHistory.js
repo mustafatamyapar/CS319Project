@@ -4,14 +4,13 @@ import {DataGrid} from '@mui/x-data-grid';
 import Header from "../Header/Header.js";
 import {fetchUser} from "../../helpers";
 import Map from "../../images/map.png"
+import AccordionGroup from "../MUIComponents/AccordionGroup";
 
 const RoomHistory = ({userId}) => {
     const [date, setDate] = useState(Date())
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(false);
     const [selectRooms, setSelectRooms] = useState(false);
-
-    const [building, setBuilding] = useState(null);
 
     const handleDate = (event) => {
         setDate(event.target.value)
@@ -30,46 +29,14 @@ const RoomHistory = ({userId}) => {
     ];
 
     const userRows = [/*...user.rooms*/
-        {id: 1, building: "EA Building", room: "EA-401"},
-        {id: 2, building: "B Building", room: "Mozart Café"},
-        {id: 3, building: "SA Building", room: "SA-201"},
-        {id: 4, building: "G Building", room: "G-202"},
-    ];
-
-    const bColumn = [
-        { field: 'building', headerName: 'Building', width: 120 },
-    ]
-
-    const bRows = [
         {id: 1, building: "A Building", rooms: ["A-101","A-102","A-103"]},
         {id: 2, building: "B Building", rooms: ["B-101","B-102","B-103"]},
         {id: 3, building: "Cafeterias", rooms: ["Mozart", "Coffee Break", "Bilka"]},
-        {id: 4, building: "EA Building",  rooms: ["EA-101","EA-102","EA-103"]},
+        {id: 4, building: "EA Building", rooms: ["EA-101","EA-102","EA-103"]},
         {id: 5, building: "G Building", rooms: ["G-101","G-102","G-103"]},
-        {id: 6, building: "SA Building",  rooms: ["SA-201", "SA-202", "SA-203"]},
+        {id: 6, building: "SA Building", rooms: ["SA-201", "SA-202", "SA-203"]},
 
     ];
-
-    const rColumn = [
-        { field: 'room', headerName: 'Room', width: 120 },
-    ]
-
-    let i = 100
-
-    function roomMapper(roomName) {
-        i++
-        return {id: i, room: roomName}
-    }
-
-    let rRows = extractRooms();
-    function extractRooms() {
-        return (
-            (bRows && building)
-                ? [bRows[building[0]-1].rooms.map(roomMapper)]
-                : null);
-    }
-
-    let buildingModel;
     return (
         <>
             <Header/>
@@ -121,65 +88,19 @@ const RoomHistory = ({userId}) => {
                 </Stack>
                 {
                     selectRooms
-                        ? <>
-                            <Grid container xs={8} display="flex"
-                                  paddingTop={4} paddingLeft={4}
-                                  justifyItems="center" direction="column">
-                                <Grid paddingRight={2}>
-                                    <Typography variant="h6">
-                                        Select rooms you have been today
-                                    </Typography>
-                                </Grid>
-                                <Stack direction="row" display="flex"
-                                justifyItems="end">
-                                    <div style={{ height: 640, width: '30%' }}>
-                                        <DataGrid
-                                            rows={bRows}
-                                            columns={bColumn}
-                                            pageSize={10}
-                                            rowsPerPageOptions={[10]}
-                                            checkboxSelection
-                                            selectionModel={buildingModel}
-                                            onSelectionModelChange={(buildingModel) => {
-                                                setBuilding(buildingModel);
-                                            }
-                                            }
-                                        />
-                                    </div>
-                                    <div style={{ height: 640, width: '30%' }}>
-                                        <DataGrid
-                                            rows={rRows}
-                                            columns={rColumn}
-                                            pageSize={10}
-                                            rowsPerPageOptions={[10]}
-                                            checkboxSelection
-                                            onSelectionModelChange={() => {
-
-                                            }
-                                            }
-                                            onCellClick={() => {
-                                                console.log("hi")
-                                            }
-                                            }
-                                        />
-                                    </div>
-                                    <div style={{ height: 640, width: '30%' }}>
-                                        <DataGrid
-                                            rows={bRows}
-                                            columns={bColumn}
-                                            pageSize={10}
-                                            rowsPerPageOptions={[10]}
-                                            checkboxSelection
-                                            onSelectionModelChange={() => {
-
-                                            }
-                                            }
-                                        />
-                                    </div>
-                                </Stack>
-                            </Grid>
-
-                        </>
+                        ? <Grid paddingTop={9} paddingLeft={5}
+                                paddingBottom={9} paddingRight={5}
+                                width="100%">
+                            <AccordionGroup/>
+                            <Button
+                                onClick={"do things"}
+                                type="submit"
+                                color="secondary"
+                                style = {{width:100}}
+                                variant="contained">
+                                Submit
+                            </Button>
+                        </Grid>
                         : <Grid xs={9}>
                             <Box height={10}/>
                             <img src={Map} alt="bilkent-map" height={1000}/>

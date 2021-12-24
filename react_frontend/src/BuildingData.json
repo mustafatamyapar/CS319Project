@@ -1,0 +1,71 @@
+{
+  "buildingCount": 6,
+  "0": {
+    "roomCount": 8,
+    "building": "A Building",
+    "rooms": {
+      "0": "AZ-01",
+      "1": "AZ-02",
+      "2": "AZ-03",
+      "3": "AZ-04",
+      "4": "AZ-05",
+      "5": "AZ-06",
+      "6": "AZ-07",
+      "7": "AZ-08"
+    }
+  },
+  "1": {
+    "roomCount": 8,
+    "building": "B Building",
+    "rooms": {
+      "0": "BZ-01",
+      "1": "BZ-02",
+      "2": "BZ-03",
+      "3": "BZ-04",
+      "4": "BZ-05",
+      "5": "BZ-06",
+      "6": "BZ-07",
+      "7": "BZ-08"
+    }
+  },
+  "2": {
+    "roomCount": 5,
+    "building": "Cafeterias",
+    "rooms": {
+      "0": "Bilka",
+      "1": "Cafe In",
+      "2": "Coffee Break",
+      "3": "Sözeri Kebap",
+      "4": "Express Cafe"
+    }
+  },
+  "3": {
+    "roomCount": 3,
+    "building": "EA Building",
+    "rooms": {
+      "0": "EA-101",
+      "1": "EA-102",
+      "2": "EA-103"
+    }
+  },
+  "4": {
+    "roomCount": 3,
+    "building": "G Building",
+    "rooms": {
+      "0": "G-101",
+      "1": "G-102",
+      "2": "G-103"
+    }
+  },
+  "5": {
+    "roomCount": 3,
+    "building": "SA Building",
+    "rooms": {
+      "0": "SA-201",
+      "1": "SA-202",
+      "2": "SA-203"
+    }
+  }
+}
+
+
