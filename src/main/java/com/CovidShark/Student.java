@@ -20,10 +20,9 @@ public class Student extends BaseUser {
     private List<Course> coursesTaken;
     private List<Section> sections;
     private List<VisitedRoom> roomHistory;
+    private List<VisitedRoom> dailyRooms;
     private List<SwapRequest> swapRequests;
     //private List<String> seats;
-
-
 
 
 
@@ -39,7 +38,8 @@ public class Student extends BaseUser {
 
         coursesTaken = new ArrayList<Course>();
         sections = new ArrayList<Section>();
-        roomHistory = null;
+        roomHistory = new ArrayList<VisitedRoom>();
+        dailyRooms = new ArrayList<VisitedRoom>();
 
         swapRequests = new ArrayList<SwapRequest>();
         //seats = null;
@@ -156,7 +156,6 @@ public class Student extends BaseUser {
     }
 
 
-
     // course op
     public List<Course> getCoursesTaken() {
         return coursesTaken;
@@ -194,13 +193,16 @@ public class Student extends BaseUser {
         return false;
     }
 
+
     // room history op
     public void addRoomToHistory(VisitedRoom room) {
-        roomHistory.add(room);
+        dailyRooms.add(room);
     }
 
     public void submitRoomHistory() {
         prizePoints = prizePoints + 10;
+        roomHistory.addAll(dailyRooms);
+        dailyRooms.clear();
     }
 
     //Swap op

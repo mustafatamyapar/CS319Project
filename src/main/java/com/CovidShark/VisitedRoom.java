@@ -1,17 +1,27 @@
 package com.CovidShark;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class VisitedRoom {
 
     private String building;
     private int floor;
     private String roomName;
     private String usedHours;
+    private String date;
 
     public VisitedRoom(String building, int floor, String roomName, String usedHours) {
         this.building = building;
         this.floor = floor;
         this.roomName = roomName;
         this.usedHours = usedHours;
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+        date = formatter.format(new Date());
+    }
+
+    public String getDate() {
+        return date;
     }
 
     public String getBuilding() {
