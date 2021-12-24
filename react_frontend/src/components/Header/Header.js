@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
 import Logo from '../../images/logo.png'
 import Line from '../../images/line.png'
-import data from './data.json'
+import data from '../data.json'
 
 const pages = ['Home', 'Notifications', 'Language', 'Points', 'About', 'Logout'];
 

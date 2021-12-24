@@ -10,7 +10,6 @@ public class SwapRequest extends Notification {
     private Student seatOwner;
     private Student requester;
     private RequestState requestState;
-    private Course course;
     private Section section;
 
     enum RequestState {
@@ -20,8 +19,8 @@ public class SwapRequest extends Notification {
         CANCELLED
     }
 
-    public SwapRequest(String seat, Student seatOwner, Student requester, Section section) {
-        super(requester.getName() + "wants to have a swap for seat" + seat, "Swap Request", requester.getName());
+    public SwapRequest(String msg, String seat, Student seatOwner, Student requester, Section section) {
+        super(msg, "Swap Request", requester.getName());
         this.seat = seat;
         this.seatOwner = seatOwner;
         this.requester = requester;
@@ -43,7 +42,7 @@ public class SwapRequest extends Notification {
         return requestState;
     }
 
-    public void markAsDone() {
+    public void markAsAccepted() {
         requestState = RequestState.ACCEPTED;
     }
     public void markAsCancelled() {
@@ -53,10 +52,14 @@ public class SwapRequest extends Notification {
         requestState = RequestState.REJECTED;
     }
 
+    /*
     public void notifyUser(Student student, SwapRequest request) {
-        student.addNotification(this);
+        student.createSwapRequest(this);
     }
+
     public void deleteFromStudent(Student student, int requestCode) {
-        student.deleteNotification(requestCode);
+
+        student.deleteSwapRequest(requestCode);
     }
+    */
 }
