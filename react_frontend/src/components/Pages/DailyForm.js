@@ -1,5 +1,5 @@
 import React from "react";
-import {Radio, FormControl, FormLabel, FormControlLabel, RadioGroup,Avatar, Button, Grid, Box, Typography} from '@mui/material';
+import {Box, Button, Grid, Typography} from '@mui/material';
 import Header from "../Header/Header.js";
 import YesNoButton from "../MUIComponents/YesNoButtons.js"
 
@@ -8,20 +8,13 @@ const DailyForm = () => {
         <>
             <Header/>
 
-            <Box
-                sx={{
-                    marginTop: 10,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                }}>
-            </Box> 
-            
             <Grid container
                 spacing = {3}
                 direction="column"
                 justifyContent="center"
-                alignItems="center">
+                alignItems="center"
+                paddingTop={10}
+                paddingBottom={10}>
                 
                 <Typography size = '12' font align="center" component="h1" variant="h6">
                     Daily Health Check Form
@@ -92,15 +85,6 @@ const DailyForm = () => {
                     Submit Form
                 </Button>
             </Grid>
-
-            <Box
-                sx={{
-                    marginTop: 5,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                }}>
-            </Box> 
         </>
     )
 }

@@ -7,12 +7,7 @@ import DormInfo from '../images/pageIcons/dormIcon.png'
 import RoomHistory from '../images/pageIcons/roomHistoryIcon.png'
 import MyProfile from '../images/pageIcons/profileIcon.png'
 import GymInfo from '../images/pageIcons/gymIcon.png'
-
-// Components
 import Header from "./Header/Header.js";
-
-// Hooks
-// Images
 
 
 const Home = () => {
@@ -103,6 +98,7 @@ const Home = () => {
                 </Grid>
                 <Grid item>
                     <Button
+                        href={1 ? "/roomhistory" : "/*"}
                         variant="outlined"
                         color = "secondary"
                         style={{ background: '#EFE9F4' }}
