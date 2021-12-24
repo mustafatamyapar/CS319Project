@@ -8,6 +8,7 @@ import DailyForm from "./components/Pages/DailyForm";
 
 import Home from "./components/Home";
 import RoomHistory from "./components/Pages/RoomHistory";
+import DormInfo from "./components/Pages/DormInfo";
 
 
 // Styles
@@ -22,6 +23,7 @@ const App = () => {
 				<Route path="/forgotpassword" element={<ForgotPassword/>}/>
 				<Route path="/dailyform" element={<DailyForm/>}/>
 				<Route path="/roomhistory" element={<RoomHistory userId={123}/>}/>
+				<Route path="/dorminfo" element={<DormInfo userType={"student"}/>}/>
 			</Routes>
 		</Router>
 	);
