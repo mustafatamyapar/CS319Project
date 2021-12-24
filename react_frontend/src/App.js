@@ -12,6 +12,10 @@ import RoomHistory from "./components/Pages/RoomHistory";
 import DormInfo from "./components/Pages/DormInfo";
 import GymInfo from "./components/Pages/GymInfo/GymInfo.js";
 import MainDormSports from "./components/Pages/GymInfo/MainDormSports";
+import MainSports from "./components/Pages/GymInfo/MainSports";
+import MainOpenAirSports from "./components/Pages/GymInfo/MainOpenAirSports";
+import EastSports from "./components/Pages/GymInfo/EastSports";
+import EastOpenAirSports from "./components/Pages/GymInfo/EastOpenAirSports";
 
 
 // Styles
@@ -30,6 +34,10 @@ const App = () => {
 				<Route path="/dorminfo" element={<DormInfo userType={"student"}/>}/>
 				<Route path="/gyminfo" element={<GymInfo/>}/>
 				<Route path="/maindormsports" element={<MainDormSports/>}/>
+				<Route path="/mainsports" element={<MainSports/>}/>
+				<Route path="/mainopenairsports" element={<MainOpenAirSports/>}/>
+				<Route path="/eastsports" element={<EastSports/>}/>
+				<Route path="/eastopenairsports" element={<EastOpenAirSports/>}/>
 			</Routes>
 		</Router>
 	);

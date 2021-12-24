@@ -36,10 +36,10 @@ export default function GymInfo() {
                         <Link href={1 ? "/maindormsports" : "/*"} underline="hover">
                             {"Dormitories Sports Hall"}
                         </Link>
-                        <Link href={1 ? "/dailyform" : "/*"} underline="hover">
+                        <Link href={1 ? "/mainsports" : "/*"} underline="hover">
                             {"Main Sports Hall"}
                         </Link>
-                        <Link href={1 ? "/dailyform" : "/*"} underline="hover">
+                        <Link href={1 ? "/mainopenairsports" : "/*"} underline="hover">
                             {"Open-Air Sports Facilities"}
                         </Link>
                     </Box>
@@ -59,10 +59,10 @@ export default function GymInfo() {
                     <Box sx={{ display: 'flex', 
                             flexDirection: 'column'}}>
                     
-                        <Link href={1 ? "/dailyform" : "/*"} underline="hover">
+                        <Link href={1 ? "/eastsports" : "/*"} underline="hover">
                             {"East Sports Hall"}
                         </Link>
-                        <Link href={1 ? "/dailyform" : "/*"} underline="hover">
+                        <Link href={1 ? "/eastopenairsports" : "/*"} underline="hover">
                             {"Open-Air Sports Facilities"}
                         </Link>
                     </Box>
