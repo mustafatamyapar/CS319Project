@@ -1,7 +1,8 @@
 package com.CovidShark;
 
-import com.google.common.collect.EvictingQueue;
-
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.Temporal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -12,8 +13,8 @@ public class Student extends BaseUser {
     private String about;
     private int formSymptomNumber;
     private int prizePoints;
-    ArrayList< Form > consecutiveDays;
-
+    ArrayList< Integer > consecutiveDays;
+    ArrayList< Form > consecutiveForms;
     private Dormitory dorm;
     private Form form;
 
@@ -34,7 +35,7 @@ public class Student extends BaseUser {
         prizePoints = 0;
 
         dorm = null;
-        form = new Form();
+        form = new Form(java.time.LocalDate.now());
 
         coursesTaken = new ArrayList<Course>();
         sections = new ArrayList<Section>();
@@ -43,7 +44,8 @@ public class Student extends BaseUser {
 
         swapRequests = new ArrayList<SwapRequest>();
         //seats = null;
-        consecutiveDays = new ArrayList<Form>();
+        consecutiveDays = new ArrayList<Integer>();
+        consecutiveForms = new ArrayList<Form>();
 
     }
 
@@ -76,26 +78,28 @@ public class Student extends BaseUser {
         if (form.answeredAll()){
             formSymptomNumber = 0;
 
-            consecutiveDays.add(new Form(java.util.Calendar.getInstance().getTime()));
+            consecutiveDays.add(form.getSymptomNumber());
+            consecutiveForms.add(form);
             if(consecutiveDays.size() <= 5)
             {
                 for (int i = 0; i < consecutiveDays.size(); i++)
                 {
-                    formSymptomNumber = formSymptomNumber +  consecutiveDays.get(i).getSymptomNumber();
+                    formSymptomNumber = formSymptomNumber +  consecutiveDays.get(i);
                 }
-                prizePoints = prizePoints + 5;
-               // form.resetForm();
             }
             else
             {
                 consecutiveDays.remove(0);
                 for (int i = 0; i < consecutiveDays.size(); i++)
                 {
-                    formSymptomNumber = formSymptomNumber +  consecutiveDays.get(i).getSymptomNumber();
+                    formSymptomNumber = formSymptomNumber +  consecutiveDays.get(i);
                 }
-                prizePoints = prizePoints + 5;
-              //  form.resetForm();
             }
+            prizePoints = prizePoints + 5;
+            form.resetForm();
+
+            warnUserForNotFilled();
+            warnUserForSymptomNum();
             return true;
         }
         return false;
@@ -107,10 +111,27 @@ public class Student extends BaseUser {
         return formSymptomNumber;
     }
 
-    public void warnUser(){
+    public void warnUserForNotFilled(){
+        LocalDate date1 = consecutiveForms.get(consecutiveForms.size() - 1).getFormDate();
+        LocalDate date2 = consecutiveForms.get(consecutiveForms.size() - 2).getFormDate();
 
-        if(consecutiveDays.get(0).)
+        long noOfDaysBetween = ChronoUnit.DAYS.between((Temporal) date1, (Temporal) date2);
 
+        if(noOfDaysBetween > 5)
+        {
+            Notification newNotif = new Notification("You should give PCR test to the Health Center","Warning", "CovidShark");
+            addNotification(newNotif);
+            getHealthStatus().setCampusPermission(false);
+        }
+    }
+
+    public void warnUserForSymptomNum(){
+        if(formSymptomNumber > 15)
+        {
+            Notification newNotif2 = new Notification("You should give PCR test to the Health Center","Warning", "CovidShark");
+            addNotification(newNotif2);
+            getHealthStatus().setCampusPermission(false);
+        }
     }
 
     // dorm operations

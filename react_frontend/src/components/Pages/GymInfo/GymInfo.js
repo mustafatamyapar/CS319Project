@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {Box,Accordion,AccordionSummary,AccordionDetails,Link,Typography} from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Header from '../Header/Header.js'
-import EmptyBox from '../MUIComponents/EmptyBox.js';
+import Header from '../../Header/Header.js'
+import EmptyBox from '../../MUIComponents/EmptyBox.js';
 
 export default function GymInfo() {
     return (
@@ -33,13 +33,13 @@ export default function GymInfo() {
                     <AccordionDetails>
                     <Box sx={{ display: 'flex', 
                             flexDirection: 'column'}}>
-                        <Link href={1 ? "/dailyform" : "/*"} underline="hover">
+                        <Link href={1 ? "/maindormsports" : "/*"} underline="hover">
                             {"Dormitories Sports Hall"}
                         </Link>
-                        <Link href={1 ? "/dailyform" : "/*"} underline="hover">
+                        <Link href={1 ? "/mainsports" : "/*"} underline="hover">
                             {"Main Sports Hall"}
                         </Link>
-                        <Link href={1 ? "/dailyform" : "/*"} underline="hover">
+                        <Link href={1 ? "/mainopenairsports" : "/*"} underline="hover">
                             {"Open-Air Sports Facilities"}
                         </Link>
                     </Box>
@@ -59,10 +59,10 @@ export default function GymInfo() {
                     <Box sx={{ display: 'flex', 
                             flexDirection: 'column'}}>
                     
-                        <Link href={1 ? "/dailyform" : "/*"} underline="hover">
+                        <Link href={1 ? "/eastsports" : "/*"} underline="hover">
                             {"East Sports Hall"}
                         </Link>
-                        <Link href={1 ? "/dailyform" : "/*"} underline="hover">
+                        <Link href={1 ? "/eastopenairsports" : "/*"} underline="hover">
                             {"Open-Air Sports Facilities"}
                         </Link>
                     </Box>

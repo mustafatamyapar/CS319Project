@@ -1,5 +1,7 @@
 package com.CovidShark;
 
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.Temporal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -69,7 +71,22 @@ public class BaseUser {
     }
 
 
+    public void requestPCRIfNeeded(){
+        if(getHealthStatus().getVaccinationInfo().size() == 0)
+        {
+            Date Date1 = getHealthStatus().getPCRHistory().get(getHealthStatus().getPCRHistory().size() - 1).getPCRDate();
+            Date Date2 = getHealthStatus().getPCRHistory().get(getHealthStatus().getPCRHistory().size() - 1).getPCRDate();
 
+            long noOfDaysBetween = ChronoUnit.DAYS.between((Temporal) Date1, (Temporal) Date2);
+
+            if(noOfDaysBetween >= 3)
+            {
+                Notification newNot= new Notification("You should give PCR test to the Health Center","Warning", "CovidShark");
+                addNotification(newNot);
+                getHealthStatus().setCampusPermission(false);
+            }
+        }
+    }
 
 
     // notification operations

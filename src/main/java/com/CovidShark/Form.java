@@ -1,5 +1,6 @@
 package com.CovidShark;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -8,9 +9,9 @@ public class Form {
 
     private List<Question> questions;
     private int symptomNumber;
-    private Date formDate;
+    private LocalDate formDate;
 
-    public Form(Date formDate) {
+    public Form(LocalDate formDate) {
         // questions will be hard-coded!!!
         this.questions = new ArrayList<Question>();
         questions.add( new Question(1, "Fever"));
@@ -29,11 +30,11 @@ public class Form {
         symptomNumber = 0;
     }
 
-    public Date getFormDate() {
+    public LocalDate getFormDate() {
         return formDate;
     }
 
-    public void setFormDate(Date formDate) {
+    public void setFormDate(LocalDate formDate) {
         this.formDate = formDate;
     }
 
