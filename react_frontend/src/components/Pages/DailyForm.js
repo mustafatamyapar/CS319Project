@@ -77,7 +77,7 @@ const DailyForm = () => {
                 </Box> 
 
                 <Button
-                    href={1 ? "/" : "/*"}
+                    href={1 ? "/dailyformdone" : "/*"}
                     type="submit"
                     color="secondary"
                     style = {{width:350}}
