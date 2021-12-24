@@ -68,9 +68,7 @@ public class BaseUser {
         healthStatus = new HealthStatus(HESCode);
     }
 
-    public HealthStatus getHealthStatus(String idNumber) {
-        return healthStatus;
-    }
+
 
 
 
