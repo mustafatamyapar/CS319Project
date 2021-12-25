@@ -28,8 +28,8 @@ export default function Login() {
                 loginEmail,
                 loginPassword
             );
-            console.log(user);
             setLoginSuccess(true);
+            console.log(user);
         }
         catch(error) {
             console.log(error.message);
@@ -71,8 +71,8 @@ export default function Login() {
                 </Grid>
                 <Grid item xs={12}>
                     <Button
-                        onClick={login}
                         href={loginSuccess ? "/" : "/login"}
+                        onClick={login}
                         type="submit"
                         color="secondary"
                         style = {{width:350}}
