@@ -9,7 +9,6 @@ import MyProfile from '../images/pageIcons/profileIcon.png'
 import GymInfo from '../images/pageIcons/gymIcon.png'
 import Header from "./Header/Header.js";
 
-
 const Home = () => {
     return (
         <>
