@@ -1,6 +1,9 @@
 import * as React from 'react';
+import {useState} from 'react';
 import {Box, Button, Container, Grid, Link, TextField, Typography} from '@mui/material';
 import Image from '../../images/logo.png'
+import {signInWithEmailAndPassword} from 'firebase/auth';
+import {auth} from '../../firebase-config.js'
 
 function Copyright(props) {
     return (
@@ -14,6 +17,24 @@ function Copyright(props) {
 }
 
 export default function Login() {
+    const[loginEmail, setLoginEmail] = useState("");
+    const[loginPassword, setLoginPassword] = useState("");
+
+    const login = async () => {
+        try {
+            const user = await signInWithEmailAndPassword(
+                auth, 
+                loginEmail,
+                loginPassword
+            );
+            console.log(user)
+        }
+        catch(error) {
+            console.log(error.message);
+        }
+    };
+
+
     return (
         <Container component="main" maxWidth="xs" >
             <Box
@@ -40,13 +61,14 @@ export default function Login() {
                     </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                    <TextField style = {{width:350}} id="outlined-basic" label="E-Mail/Bilkent ID" variant="outlined" />
+                    <TextField onChange={(event) =>{setLoginEmail(event.target.value)}} style = {{width:350}} id="outlined-basic" label="E-Mail/Bilkent ID" variant="outlined" />
                 </Grid>
                 <Grid item xs={12} >
-                    <TextField style = {{width:350}} id="outlined-basic" label="Password" variant="outlined" />
+                    <TextField onChange={(event) =>{setLoginPassword(event.target.value)}} style = {{width:350}} id="outlined-basic" label="Password" variant="outlined" />
                 </Grid>
                 <Grid item xs={12}>
                     <Button
+                        onClick={login}
                         href={1 ? "/" : "/*"}
                         type="submit"
                         color="secondary"

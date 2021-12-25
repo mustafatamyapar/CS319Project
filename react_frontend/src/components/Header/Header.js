@@ -1,17 +1,28 @@
 import * as React from 'react';
+import {useState} from 'react';
 import {AppBar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar, Typography} from '@mui/material';
-import {Link} from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
 import Logo from '../../images/logo.png'
 import Line from '../../images/line.png'
 import data from '../data.json'
+import {auth} from '../../firebase-config.js'
+import {signOut, onAuthStateChanged} from 'firebase/auth';
 
-const pages = ['Home', 'Notifications', 'Language', 'Points', 'About', 'Logout'];
+const pages = ['Home', 'Notifications', 'Language', 'Points', 'About'];
 
-console.log(data.firstName);
 
 const ResponsiveAppBar = () => {
-    let dest;
+    const[user, setUser] = useState({})
+    onAuthStateChanged(auth, (currentUser) => {
+        setUser(currentUser)
+    })
+
+
+    const logout = async() => {
+        await signOut(auth);
+    };
+    
+    
     const [anchorElNav, setAnchorElNav] = React.useState(null);
 
     const handleOpenNavMenu = (event) => {
@@ -22,6 +33,7 @@ const ResponsiveAppBar = () => {
         setAnchorElNav(null);
     };
 
+    console.log(user.email);
     return (
         <AppBar position="static" style={{ background: '#EFE9F4' }}>
             <Container maxWidth="xl">
@@ -39,10 +51,10 @@ const ResponsiveAppBar = () => {
                     <Typography
                         variant="h6"
                         sx={{color: 'black'}}>
-                        {data.firstName}
-                        {" "}
-                        {data.lastName}
+                        {user.email}
                     </Typography>
+
+
 
                     {/*Displays the menu icon when the page is smaller or on a mobile*/}
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -103,8 +115,13 @@ const ResponsiveAppBar = () => {
                             </Button>
                             ))
                         }
+                        <Button
+                                href={1 ? "/login" : "/*"}
+                                onClick={logout}
+                                sx={{ my: 2, color: 'black', display: 'block' }}>
+                                    Logout
+                            </Button>
                     </Box>
-
                 </Toolbar>
             </Container>
         </AppBar>

@@ -1,8 +1,28 @@
 import * as React from 'react';
+import {useState} from 'react';
 import {Box, Button, Container, Grid, Link, TextField, Typography} from '@mui/material';
 import Image from '../../images/logo.png'
+import {createUserWithEmailAndPassword} from 'firebase/auth';
+import {auth} from '../../firebase-config.js'
 
 const SignUp = () => {
+  const[registerEmail, setRegisterEmail] = useState("");
+  const[registerPassword, setRegisterPassword] = useState("");
+
+  const register = async () => {
+    try {
+      const user = await createUserWithEmailAndPassword(
+        auth, 
+        registerEmail,
+        registerPassword
+      );
+      console.log(user)
+    }
+    catch(error) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <Container component="main" maxWidth="xs" >
       <Box
@@ -32,7 +52,7 @@ const SignUp = () => {
           <TextField required style = {{width:350}} id="outlined-basic" label="Name Surname" variant="outlined" />
         </Grid>
         <Grid item xs={12}>
-          <TextField required style = {{width:350}} id="outlined-basic" label="E-Mail" variant="outlined" />
+          <TextField onChange={(event) =>{setRegisterEmail(event.target.value)}} required style = {{width:350}} id="outlined-basic" label="E-Mail" variant="outlined" />
         </Grid>
         <Grid item xs={12}>
           <TextField required style = {{width:350}} id="outlined-basic" label="Bilkent ID" variant="outlined" />
@@ -41,10 +61,11 @@ const SignUp = () => {
           <TextField required style = {{width:350}} id="outlined-basic" label="Phone Number" variant="outlined" />
         </Grid>
         <Grid item xs={12} >
-          <TextField required style = {{width:350}} id="outlined-basic" label="Password" variant="outlined" />
+          <TextField onChange={(event) =>{setRegisterPassword(event.target.value)}} required style = {{width:350}} id="outlined-basic" label="Password" variant="outlined" />
         </Grid>
         <Grid item xs={12}>
           <Button
+            onClick={register}
             type="submit"
             color="secondary"
             style = {{width:350}}
