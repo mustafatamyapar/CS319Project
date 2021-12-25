@@ -4,8 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * The Instructor class extends the BaseUser class.
+ */
 public class Instructor extends BaseUser {
+
+    /**
+     * The coursesGiven list holds the courses.
+     */
     private List<Course> coursesGiven;
+
+    /**
+     * The sectionsGiven list holds the sections.
+     */
     private List<Section> sectionsGiven;
 
     public Instructor(String idNumber, String name, String email, String phoneNumber) {
@@ -14,22 +25,40 @@ public class Instructor extends BaseUser {
         this.sectionsGiven = new ArrayList<Section>();
     }
 
+    /**
+     * The getCoursesGiven() operation gets the courses given by an instructor.
+     * @return the list of courses given.
+     */
     public List<Course> getCoursesGiven() {
         return coursesGiven;
     }
 
+    /**
+     * The addCourse(Course courseGiven) operation adds a course to the courses given list.
+     */
     public void addCourse(Course courseGiven) {
         coursesGiven.add(courseGiven);
     }
 
+    /**
+     * The setSectionsGiven(Section sectionsGiven) operation sets the sections given by an instructor.
+     */
     public void setSectionsGiven(Section sectionGiven) {
         sectionsGiven.add(sectionGiven);
     }
 
+    /**
+     * The getSectionsGiven() operation gets the sections given by an instructor.
+     * @return the sections given.
+     */
     public List<Section> getSectionsGiven() {
         return sectionsGiven;
     }
 
+    /**
+     * The seeInfectedInClassroom(String sectionNo) operation sees the infected students in a classroom.
+     * @return the infected students list if the given section exists, null otherwise
+     */
     public List<Student> seeInfectedInClassroom(String sectionNo) {
 
         if (sectionExists(sectionNo)){
@@ -41,8 +70,10 @@ public class Instructor extends BaseUser {
         return null;
     }
 
-
-
+    /**
+     * The sectionExists(String sectionNo) operation checks if a section exists or not.
+     * @return true if section exists, false otherwise.
+     */
     public boolean sectionExists(String sectionNo){
         for (int i = 0; i < sectionsGiven.size(); i++){
             if (Objects.equals(sectionsGiven.get(i).getSectionNo(), sectionNo))
@@ -50,6 +81,4 @@ public class Instructor extends BaseUser {
         }
         return false;
     }
-
-
 }
