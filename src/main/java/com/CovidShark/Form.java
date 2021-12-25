@@ -19,10 +19,13 @@ public class Form {
      * The symptomNumber integer holds the symptom numbers.
      */
     private int symptomNumber;
+<<<<<<< Updated upstream
 
     /**
      * The formDate is a LocalDate which is built-in date of Java.
      */
+=======
+>>>>>>> Stashed changes
     private LocalDate formDate;
     private String id;
     private static int formCode = 0;
@@ -46,6 +49,13 @@ public class Form {
 
         id = String.valueOf(formCode++);
 
+<<<<<<< Updated upstream
+=======
+    }
+
+    public String getId() {
+        return id;
+>>>>>>> Stashed changes
     }
 
     public String getId() {
