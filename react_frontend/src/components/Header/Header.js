@@ -35,6 +35,8 @@ const ResponsiveAppBar = () => {
 
     console.log(user)
 
+    //return (<></>)
+
     return (
         <AppBar position="static" style={{ background: '#EFE9F4' }}>
             <Container maxWidth="xl">
@@ -107,8 +109,8 @@ const ResponsiveAppBar = () => {
                     <Box justifyContent="flex-end" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
                             <Button
-                                href={page === "Home" ? "/"
-                                    : ((page === "Logout") ? "/login"
+                                href={page === "Home" ? "/home"
+                                    : ((page === "Logout") ? "/"
                                         : "/*")}
                                 key={page}
                                 onClick={handleCloseNavMenu}
@@ -117,7 +119,7 @@ const ResponsiveAppBar = () => {
                             ))
                         }
                         <Button
-                                href={1 ? "/login" : "/*"}
+                                href={1 ? "/" : "/*"}
                                 onClick={logout}
                                 sx={{ my: 2, color: 'black', display: 'block' }}>
                                     Logout

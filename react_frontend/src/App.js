@@ -16,6 +16,7 @@ import MainSports from "./components/Pages/GymInfo/MainSports";
 import MainOpenAirSports from "./components/Pages/GymInfo/MainOpenAirSports";
 import EastSports from "./components/Pages/GymInfo/EastSports";
 import EastOpenAirSports from "./components/Pages/GymInfo/EastOpenAirSports";
+import MyProfile from "./components/Pages/MyProfile";
 
 
 // Styles
@@ -24,20 +25,27 @@ const App = () => {
 	return (
 		<Router>
 			<Routes>
-				<Route path="/" element={<Home/>}/>
-				<Route path="/login" element={<Login/>}/>
+				<Route path="/home" element={<Home/>}/>
+
+				<Route path="/" element={<Login/>}/>
 				<Route path="/signup" element={<SignUp/>}/>
 				<Route path="/forgotpassword" element={<ForgotPassword/>}/>
+
 				<Route path="/dailyform" element={<DailyForm/>}/>
 				<Route path="/dailyformdone" element={<DailyFormDone/>}/>
+
 				<Route path="/roomhistory" element={<RoomHistory userId={123}/>}/>
+
 				<Route path="/dorminfo" element={<DormInfo userType={"admin"}/>}/>
+
 				<Route path="/gyminfo" element={<GymInfo/>}/>
 				<Route path="/maindormsports" element={<MainDormSports/>}/>
 				<Route path="/mainsports" element={<MainSports/>}/>
 				<Route path="/mainopenairsports" element={<MainOpenAirSports/>}/>
 				<Route path="/eastsports" element={<EastSports/>}/>
 				<Route path="/eastopenairsports" element={<EastOpenAirSports/>}/>
+
+				<Route path="/myprofile" element={<MyProfile/>}/>
 			</Routes>
 		</Router>
 	);

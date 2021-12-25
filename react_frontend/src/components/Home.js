@@ -95,6 +95,7 @@ const Home = () => {
                 </Grid>
                 <Grid item>
                     <Button
+                        href={1 ? "/myprofile" : "/*"}
                         variant="outlined"
                         color = "secondary"
                         style={{ background: '#EFE9F4' }}
