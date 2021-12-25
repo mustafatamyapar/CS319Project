@@ -13,5 +13,5 @@ export const canSeeDormStudents = (userType) => {
 }
 
 export const getBreakouts = (dorm) => {
-  return  {"newBOuts": (Math.random()*100)/100, "bOuts": (Math.random()*100)/100} // placeholder
+  return  {"newBOuts": Math.round(Math.random()*100), "bOuts": Math.round(Math.random()*100)} // placeholder
 }

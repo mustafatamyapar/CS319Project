@@ -17,8 +17,9 @@ function Copyright(props) {
 }
 
 export default function Login() {
-    const[loginEmail, setLoginEmail] = useState("");
-    const[loginPassword, setLoginPassword] = useState("");
+    const [loginEmail, setLoginEmail] = useState("");
+    const [loginPassword, setLoginPassword] = useState("");
+    const [loginSuccess, setLoginSuccess] = useState(false);
 
     const login = async () => {
         try {
@@ -27,10 +28,12 @@ export default function Login() {
                 loginEmail,
                 loginPassword
             );
-            console.log(user)
+            console.log(user);
+            setLoginSuccess(true);
         }
         catch(error) {
             console.log(error.message);
+            setLoginSuccess(false);
         }
     };
 
@@ -69,7 +72,7 @@ export default function Login() {
                 <Grid item xs={12}>
                     <Button
                         onClick={login}
-                        href={1 ? "/" : "/*"}
+                        href={loginSuccess ? "/" : "/login"}
                         type="submit"
                         color="secondary"
                         style = {{width:350}}
@@ -86,12 +89,12 @@ export default function Login() {
                   alignItems="flex-start">
 
                 <Grid item>
-                    <Link href="forgotpassword" variant="body2">
+                    <Link href="/forgotpassword" variant="body2">
                         Forgot password?
                     </Link>
                 </Grid>
                 <Grid item>
-                    <Link href="signup" variant="body2">
+                    <Link href="/signup" variant="body2">
                         Create an account!
                     </Link>
                 </Grid>

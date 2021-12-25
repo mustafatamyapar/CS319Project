@@ -9,6 +9,8 @@ const SignUp = () => {
   const[registerEmail, setRegisterEmail] = useState("");
   const[registerPassword, setRegisterPassword] = useState("");
 
+  const [registerSuccess, setRegisterSuccess] = useState(false);
+
   const register = async () => {
     try {
       const user = await createUserWithEmailAndPassword(
@@ -17,9 +19,11 @@ const SignUp = () => {
         registerPassword
       );
       console.log(user)
+      setRegisterSuccess(true);
     }
     catch(error) {
       console.log(error.message);
+      setRegisterSuccess(false);
     }
   };
 
@@ -65,6 +69,7 @@ const SignUp = () => {
         </Grid>
         <Grid item xs={12}>
           <Button
+              href={registerSuccess ? "/login" : "/signup"}
             onClick={register}
             type="submit"
             color="secondary"

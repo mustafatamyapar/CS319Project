@@ -4,7 +4,6 @@ import {AppBar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar, Typ
 import MenuIcon from '@mui/icons-material/Menu';
 import Logo from '../../images/logo.png'
 import Line from '../../images/line.png'
-import data from '../data.json'
 import {auth} from '../../firebase-config.js'
 import {signOut, onAuthStateChanged} from 'firebase/auth';
 
@@ -13,6 +12,7 @@ const pages = ['Home', 'Notifications', 'Language', 'Points', 'About'];
 
 const ResponsiveAppBar = () => {
     const[user, setUser] = useState({})
+
     onAuthStateChanged(auth, (currentUser) => {
         setUser(currentUser)
     })
@@ -33,7 +33,8 @@ const ResponsiveAppBar = () => {
         setAnchorElNav(null);
     };
 
-    console.log(user.email);
+    console.log(user)
+
     return (
         <AppBar position="static" style={{ background: '#EFE9F4' }}>
             <Container maxWidth="xl">

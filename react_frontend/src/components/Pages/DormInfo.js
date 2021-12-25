@@ -38,21 +38,17 @@ const DormInfo = ({userType}) => {
                             <RadioButtonList type={3} callback={setStudent} dorm={dorm} floor={floor}/>
                         </Grid>
                         : null}
-                    <Stack direction="column">
-                        <Typography paddingTop={5} paddingBottom={0} style={{fontSize: 25, fontFamily: "Poppins"}}>Outbreak Information</Typography>
+                    <Stack direction="column" padding={5}>
+                        <Typography paddingBottom={0} style={{fontSize: 25, fontFamily: "Poppins"}}>Outbreak Information</Typography>
                         <Typography paddingTop={5} paddingBottom={0} style={{fontSize: 16, fontFamily: "Poppins"}}>
                             Dormitory {dorm} has {breakout["bOuts"]} breakout(s) since the start of the pandemic.
                         </Typography>
-                        <Typography paddingTop={5} paddingBottom={5} style={{fontSize: 16, fontFamily: "Poppins"}}>
+                        <Typography paddingTop={5} style={{fontSize: 16, fontFamily: "Poppins"}}>
                             Last month there were {breakout["newBOuts"]} new positive test(s)
                         </Typography>
-                        <Button
-                            type="submit"
-                            color="secondary"
-                            style = {{width:350, fontFamily: "Poppins"}}
-                            variant="contained">
-                            Submit
-                        </Button>
+                        <Typography paddingBottom={5} paddingTop={5} style={{fontSize: 16, fontFamily: "Poppins"}}>
+                            {student} is placeholder.
+                        </Typography>
                     </Stack>
                 </Grid>
             </Stack>
