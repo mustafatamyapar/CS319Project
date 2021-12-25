@@ -33,8 +33,6 @@ const ResponsiveAppBar = () => {
         setAnchorElNav(null);
     };
 
-    console.log(user)
-
     //return (<></>)
 
     return (
@@ -47,8 +45,8 @@ const ResponsiveAppBar = () => {
                         noWrap
                         component="div"
                         sx={{ mr: 2, color: 'black', display: { xs: 'none', md: 'flex' } }}>
-                        <img src={Logo} />
-                        <img src={Line} />
+                        <img src={Logo} alt="logo"/>
+                        <img src={Line} alt="line"/>
                     </Typography>
 
                     <Typography
@@ -102,7 +100,7 @@ const ResponsiveAppBar = () => {
                         noWrap
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                        <img src={Logo} />
+                        <img src={Logo} alt="logo"/>
                     </Typography>
 
                     {/*One button to show all the page names*/}
