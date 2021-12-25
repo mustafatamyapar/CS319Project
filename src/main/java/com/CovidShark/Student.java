@@ -23,6 +23,7 @@ public class Student extends BaseUser {
     private List<VisitedRoom> roomHistory;
     private List<VisitedRoom> dailyRooms;
     private List<SwapRequest> swapRequests;
+    SectionFacade sectionFacade;
     //private List<String> seats;
 
 
@@ -46,6 +47,8 @@ public class Student extends BaseUser {
         //seats = null;
         consecutiveDays = new ArrayList<Integer>();
         consecutiveForms = new ArrayList<Form>();
+
+        sectionFacade = new SectionFacade();
 
     }
 
@@ -257,8 +260,12 @@ public class Student extends BaseUser {
             return false;
     }
 
-    private void addSwapRequest(SwapRequest sR){
+    public void addSwapRequest(SwapRequest sR){
         swapRequests.add(sR);
+    }
+
+    public List<SwapRequest> getSwapRequests(){
+        return swapRequests;
     }
 
     public boolean selectSeat(String seatNum, String sectionCode){
@@ -418,4 +425,32 @@ public class Student extends BaseUser {
             swapRequests.get(i).markAsRejected();
         }
     }
+
+
+
+    // FACADE OPERATIONS
+    public boolean selectSeatByFacade(String seatNum, String sectionCode){
+        return sectionFacade.selectSeat(seatNum, sectionCode, sections, this);
+    }
+
+
+    public void createSwapRequestByFacade(String seatNo, String courseSection) {
+        sectionFacade.createSwapRequest(this, seatNo, sections, courseSection, swapRequests);
+    }
+
+    public boolean cancelSwapRequestByFacade(int requestCode) {
+        return sectionFacade.cancelSwapRequest(requestCode, swapRequests);
+    }
+
+    // Important: This will be done by owner/receiver
+    public void rejectSwapRequestByFacade(int requestCode) {
+        sectionFacade.rejectSwapRequest(swapRequests, requestCode);
+    }
+
+    // Important: This will be done by owner/receiver
+    public void acceptSwapRequestByFacade(int requestCode) {
+        sectionFacade.acceptSwapRequest(swapRequests, requestCode, sections);
+    }
+
+
 }
