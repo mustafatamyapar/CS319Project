@@ -20,13 +20,10 @@ public class Form {
      */
     private int symptomNumber;
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 
     /**
      * The formDate is a LocalDate which is built-in date of Java.
      */
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     private LocalDate formDate;
@@ -53,14 +50,7 @@ public class Form {
         id = String.valueOf(formCode++);
 
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 =======
-=======
-    }
-
-    public String getId() {
-        return id;
->>>>>>> Stashed changes
     }
 
     public String getId() {
