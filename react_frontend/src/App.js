@@ -18,6 +18,7 @@ import EastSports from "./components/Pages/GymInfo/EastSports";
 import EastOpenAirSports from "./components/Pages/GymInfo/EastOpenAirSports";
 import MyProfile from "./components/Pages/MyProfile";
 import {Typography} from "@mui/material";
+import Header from "./components/Header/Header";
 
 
 // Styles
@@ -48,7 +49,9 @@ const App = () => {
 
 				<Route path="/myprofile" element={<MyProfile/>}/>
 
-				<Route path="/*" element={<Typography sx={{fontFamily: "Poppins", fontWeight: 600, fontSize: 60}}>404</Typography>}/>
+				<Route path="/*" element={<><Header/><Typography
+					sx={{fontFamily: "Poppins", fontWeight: 600, fontSize: 60}}>
+					404</Typography></>}/>
 			</Routes>
 		</Router>
 	);
