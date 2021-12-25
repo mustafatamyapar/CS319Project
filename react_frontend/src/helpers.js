@@ -13,5 +13,15 @@ export const canSeeDormStudents = (userType) => {
 }
 
 export const getBreakouts = (dorm) => {
-  return  {"newBOuts": (Math.random()*100)/100, "bOuts": (Math.random()*100)/100}
+  return  {"newBOuts": Math.round(Math.random()*100), "bOuts": Math.round(Math.random()*100)} // placeholder
+}
+
+export const getStudents = (user) => {
+  return [
+    "Burak Öztürk",
+    "Arda İçöz",
+    "Mustafa Tamyapar",
+    "Melis Atun",
+    "Onur Vural"
+  ]
 }

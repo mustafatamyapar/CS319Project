@@ -29,19 +29,19 @@ const RoomHistory = ({userId}) => {
     ];
 
     const userRows = [/*...user.rooms*/
-        {id: 1, building: "A Building", rooms: ["A-101","A-102","A-103"]},
-        {id: 2, building: "B Building", rooms: ["B-101","B-102","B-103"]},
-        {id: 3, building: "Cafeterias", rooms: ["Mozart", "Coffee Break", "Bilka"]},
-        {id: 4, building: "EA Building", rooms: ["EA-101","EA-102","EA-103"]},
-        {id: 5, building: "G Building", rooms: ["G-101","G-102","G-103"]},
-        {id: 6, building: "SA Building", rooms: ["SA-201", "SA-202", "SA-203"]},
+        {id: 1, building: "A Building", room: "A-101"},
+        {id: 2, building: "B Building", room: "B-101"},
+        {id: 3, building: "Cafeterias", room: "Mozart"},
+        {id: 4, building: "EA Building", room: "EA-101"},
+        {id: 5, building: "G Building", room: "G-101"},
+        {id: 6, building: "SA Building", room: "SA-201"},
 
     ];
     return (
         <>
             <Header/>
             <Grid display="flex">
-                <Stack container xs={2} minWidth={274}
+                <Stack container xs={2} minWidth={320}
                        paddingTop={4} paddingLeft={4}
                        alignItems="center" direction="column">
                     <Stack alignItems="center" direction="row">

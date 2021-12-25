@@ -45,16 +45,16 @@ const RadioButtonList = ({type, callback, dorm, floor, callback2 = null}) => {
                             },
                             (_, i) =>
                                 ((type === 1)
-                                        ? (<FormControlLabel value={i} control={<Radio onClick={() => {
-                                                handleSelection(Object.keys(DormData)[i])
-                                            }} key={i} defaultValue={0}/>} label={Object.keys(DormData)[i]} />)
+                                        ? (<FormControlLabel value={i} control={<Radio onClick={async () => {
+                                            await handleSelection(Object.keys(DormData)[i])
+                                        }} key={i} defaultValue={0}/>} label={Object.keys(DormData)[i]} />)
 
-                                        : ((type === 2) ? (<FormControlLabel value={i} control={<Radio onClick={() => {
-                                                    handleSelection(Object.keys(DormData[dorm])[i])
-                                                }} key={i} defaultValue={0}/>} label={Object.keys(DormData[dorm])[i]}/>)
+                                        : ((type === 2) ? (<FormControlLabel value={i} control={<Radio onClick={async () => {
+                                                await handleSelection(Object.keys(DormData[dorm])[i])
+                                            }} key={i} defaultValue={0}/>} label={Object.keys(DormData[dorm])[i]}/>)
 
-                                            : <FormControlLabel value={i} control={<Radio onClick={() => {
-                                                handleSelection(DormData[dorm][floor][Object.keys(DormData[dorm][floor])[i]])
+                                            : <FormControlLabel value={i} control={<Radio onClick={async () => {
+                                                await handleSelection(DormData[dorm][floor][Object.keys(DormData[dorm][floor])[i]])
                                             }} key={i} defaultValue={0}/>} label={DormData[dorm][floor][Object.keys(DormData[dorm][floor])[i]]}/>)
                                 )
                         )

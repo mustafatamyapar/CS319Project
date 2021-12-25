@@ -1,17 +1,28 @@
 import * as React from 'react';
+import {useState} from 'react';
 import {AppBar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar, Typography} from '@mui/material';
-import {Link} from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
 import Logo from '../../images/logo.png'
 import Line from '../../images/line.png'
-import data from '../data.json'
+import {auth} from '../../firebase-config.js'
+import {signOut, onAuthStateChanged} from 'firebase/auth';
 
-const pages = ['Home', 'Notifications', 'Language', 'Points', 'About', 'Logout'];
+const pages = ['Home', 'Notifications', 'Language', 'Points', 'About'];
 
-console.log(data.firstName);
 
 const ResponsiveAppBar = () => {
-    let dest;
+    const[user, setUser] = useState({})
+
+    onAuthStateChanged(auth, (currentUser) => {
+        setUser(currentUser)
+    })
+
+
+    const logout = async() => {
+        await signOut(auth);
+    };
+    
+    
     const [anchorElNav, setAnchorElNav] = React.useState(null);
 
     const handleOpenNavMenu = (event) => {
@@ -21,6 +32,8 @@ const ResponsiveAppBar = () => {
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
     };
+
+    //return (<></>)
 
     return (
         <AppBar position="static" style={{ background: '#EFE9F4' }}>
@@ -32,17 +45,17 @@ const ResponsiveAppBar = () => {
                         noWrap
                         component="div"
                         sx={{ mr: 2, color: 'black', display: { xs: 'none', md: 'flex' } }}>
-                        <img src={Logo} />
-                        <img src={Line} />
+                        <img src={Logo} alt="logo"/>
+                        <img src={Line} alt="line"/>
                     </Typography>
 
                     <Typography
                         variant="h6"
                         sx={{color: 'black'}}>
-                        {data.firstName}
-                        {" "}
-                        {data.lastName}
+                        {user.email}
                     </Typography>
+
+
 
                     {/*Displays the menu icon when the page is smaller or on a mobile*/}
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -87,15 +100,15 @@ const ResponsiveAppBar = () => {
                         noWrap
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                        <img src={Logo} />
+                        <img src={Logo} alt="logo"/>
                     </Typography>
 
                     {/*One button to show all the page names*/}
                     <Box justifyContent="flex-end" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
                             <Button
-                                href={page === "Home" ? "/"
-                                    : ((page === "Logout") ? "/login"
+                                href={page === "Home" ? "/home"
+                                    : ((page === "Logout") ? "/"
                                         : "/*")}
                                 key={page}
                                 onClick={handleCloseNavMenu}
@@ -103,8 +116,13 @@ const ResponsiveAppBar = () => {
                             </Button>
                             ))
                         }
+                        <Button
+                                href={1 ? "/" : "/*"}
+                                onClick={logout}
+                                sx={{ my: 2, color: 'black', display: 'block' }}>
+                                    Logout
+                            </Button>
                     </Box>
-
                 </Toolbar>
             </Container>
         </AppBar>
