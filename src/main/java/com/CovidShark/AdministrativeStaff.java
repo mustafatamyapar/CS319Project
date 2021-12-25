@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * AdministrativeStaff class extends BaseUser class.
+ * The AdministrativeStaff class extends BaseUser class.
  */
 public class AdministrativeStaff extends BaseUser {
 
