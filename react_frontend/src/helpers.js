@@ -11,3 +11,7 @@ export const canSeeDormStudents = (userType) => {
   return userType === "schooladministrator" || userType === "healthstaff" || userType === "admin";
 
 }
+
+export const getBreakouts = (dorm) => {
+  return  {"newBOuts": (Math.random()*100)/100, "bOuts": (Math.random()*100)/100}
+}

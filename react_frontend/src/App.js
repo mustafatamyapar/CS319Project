@@ -31,7 +31,7 @@ const App = () => {
 				<Route path="/dailyform" element={<DailyForm/>}/>
 				<Route path="/dailyformdone" element={<DailyFormDone/>}/>
 				<Route path="/roomhistory" element={<RoomHistory userId={123}/>}/>
-				<Route path="/dorminfo" element={<DormInfo userType={"student"}/>}/>
+				<Route path="/dorminfo" element={<DormInfo userType={"admin"}/>}/>
 				<Route path="/gyminfo" element={<GymInfo/>}/>
 				<Route path="/maindormsports" element={<MainDormSports/>}/>
 				<Route path="/mainsports" element={<MainSports/>}/>

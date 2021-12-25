@@ -8,7 +8,7 @@ import {useState} from "react";
 // 3: Student column
 
 // dormCount and floorCount's are not used and can be removed from JSON
-const RadioButtonList = ({type, callback, dorm, floor}) => {
+const RadioButtonList = ({type, callback, dorm, floor, callback2 = null}) => {
 
     const [selection, setSelection] = useState(null)
 
@@ -18,12 +18,15 @@ const RadioButtonList = ({type, callback, dorm, floor}) => {
             callback(sel);
             console.log(selection);
         }
+        if (callback2 !== null) {
+            callback2(dorm);
+        }
     }
 
     return (
         <Grid padding={5}>
             <Grid border="solid" color="#723456" padding={4}
-                  paddingRight={8} borderRadius={3}>
+                  paddingRight={10} borderRadius={5}>
                 <FormControl component="fieldset">
                     <FormLabel style={{fontWeight: 600, fontSize: 20, fontFamily:"Poppins"}} component="legend">
                         {(type === 1 ? "Dorms" : ((type === 2) ? "Floors" : "Students"))}
