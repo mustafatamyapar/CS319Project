@@ -24,7 +24,8 @@ public class Form {
      * The formDate is a LocalDate which is built-in date of Java.
      */
     private LocalDate formDate;
-
+    private String id;
+    private static int formCode = 0;
     public Form(LocalDate formDate) {
         // questions will be hard-coded!!!
         this.questions = new ArrayList<Question>();
@@ -42,6 +43,13 @@ public class Form {
 
         this.formDate = formDate;
         symptomNumber = 0;
+
+        id = String.valueOf(formCode++);
+
+    }
+
+    public String getId() {
+        return id;
     }
 
     /**

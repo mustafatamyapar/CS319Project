@@ -13,7 +13,6 @@ import java.util.concurrent.ExecutionException;
 public class CourseController {
     @GetMapping("/getCourseDetails")
     public Course getCourse(@RequestHeader String courseCode)throws InterruptedException, ExecutionException {
-
         return CourseService.getCourseDetails(courseCode);
     }
 
