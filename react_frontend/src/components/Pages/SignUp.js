@@ -3,13 +3,14 @@ import {useState} from 'react';
 import {Box, Button, Container, Grid, Link, TextField, Typography} from '@mui/material';
 import Image from '../../images/logo.png'
 import {createUserWithEmailAndPassword} from 'firebase/auth';
-import {auth} from '../../firebase-config.js'
+import {auth, db} from '../../firebase-config.js'
+import { doc, getDoc } from "firebase/firestore";
 
 const SignUp = () => {
   const[registerEmail, setRegisterEmail] = useState("");
   const[registerPassword, setRegisterPassword] = useState("");
-
-  const [registerSuccess, setRegisterSuccess] = useState(false);
+  const[registerID, setRegisterID] = useState("")
+  const[registerSuccess, setRegisterSuccess] = useState(false);
 
   const register = async () => {
     try {
@@ -26,6 +27,32 @@ const SignUp = () => {
       setRegisterSuccess(false);
     }
   };
+
+  const checkExist = async () => {
+    const baseUserRef = doc(db, "baseUsers", {registerID});
+    const baseUserSnap = await getDoc(baseUserRef);
+    
+    console.log("Hello");
+    
+    if(baseUserSnap.exists()) {
+      const email = baseUserSnap.getString("email"); //this prints fine
+
+      if (registerEmail === email) {
+
+        await register();
+        alert("User created. Go to login page please to login");
+        setRegisterSuccess(true);
+      }
+      else {
+        alert("User not exist in SRS");
+      }
+    }
+    else
+    {
+      alert("User not exist in SRS");
+    }
+  };
+
 
   return (
       <Container component="main" maxWidth="xs" >
@@ -59,7 +86,7 @@ const SignUp = () => {
             <TextField onChange={(event) =>{setRegisterEmail(event.target.value)}} required style = {{width:350}} id="outlined-basic" label="E-Mail" variant="outlined" />
           </Grid>
           <Grid item xs={12}>
-            <TextField required style = {{width:350}} id="outlined-basic" label="Bilkent ID" variant="outlined" />
+            <TextField onChange={(event) =>{setRegisterID(event.target.value)}} required style = {{width:350}} id="outlined-basic" label="Bilkent ID" variant="outlined" />
           </Grid>
           <Grid item xs={12}>
             <TextField required style = {{width:350}} id="outlined-basic" label="Phone Number" variant="outlined" />
@@ -69,8 +96,7 @@ const SignUp = () => {
           </Grid>
           <Grid item xs={12}>
             <Button
-                href={registerSuccess ? "" : "/signup"}
-                onClick={register}
+                onClick={checkExist}
                 type="submit"
                 color="secondary"
                 style = {{width:350}}
@@ -79,12 +105,11 @@ const SignUp = () => {
             </Button>
           </Grid>
           <Grid item>
-            <Link href="/login" variant="body2">
+            <Link href="/" variant="body2">
               Already have an account? Log In.
             </Link>
           </Grid>
         </Grid>
-
       </Container>
   );
 }
