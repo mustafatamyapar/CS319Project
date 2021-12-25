@@ -8,6 +8,7 @@ import DailyForm from "./components/Pages/DailyForm";
 import DailyFormDone from "./components/Pages/DailyFormDone";
 
 import Home from "./components/Home";
+import NotFound from "./components/Pages/NotFound";
 import RoomHistory from "./components/Pages/RoomHistory";
 import DormInfo from "./components/Pages/DormInfo";
 import GymInfo from "./components/Pages/GymInfo/GymInfo.js";
@@ -49,9 +50,7 @@ const App = () => {
 
 				<Route path="/myprofile" element={<MyProfile/>}/>
 
-				<Route path="/*" element={<><Header/><Typography
-					sx={{fontFamily: "Poppins", fontWeight: 600, fontSize: 60}}>
-					404</Typography></>}/>
+				<Route path="/*" element={<NotFound/>}/>
 			</Routes>
 		</Router>
 	);
