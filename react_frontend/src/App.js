@@ -18,8 +18,7 @@ import MainOpenAirSports from "./components/Pages/GymInfo/MainOpenAirSports";
 import EastSports from "./components/Pages/GymInfo/EastSports";
 import EastOpenAirSports from "./components/Pages/GymInfo/EastOpenAirSports";
 import MyProfile from "./components/Pages/MyProfile";
-import {Typography} from "@mui/material";
-import Header from "./components/Header/Header";
+import HealthStatus from "./components/Pages/HealthStatus";
 
 
 // Styles
@@ -34,11 +33,11 @@ const App = () => {
 				<Route path="/signup" element={<SignUp/>}/>
 				<Route path="/forgotpassword" element={<ForgotPassword/>}/>
 
+				<Route path="/healthstatus" element={<HealthStatus/>}/>
 				<Route path="/dailyform" element={<DailyForm/>}/>
 				<Route path="/dailyformdone" element={<DailyFormDone/>}/>
 
 				<Route path="/roomhistory" element={<RoomHistory userId={123}/>}/>
-
 				<Route path="/dorminfo" element={<DormInfo userType={"admin"}/>}/>
 
 				<Route path="/gyminfo" element={<GymInfo/>}/>

@@ -36,6 +36,7 @@ const Home = () => {
                 </Grid>
                 <Grid item>
                     <Button
+                        href="/healthstatus"
                         variant="outlined"
                         color = "secondary"
                         style={{ background: '#EFE9F4' }}
