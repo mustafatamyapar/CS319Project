@@ -4,6 +4,11 @@ import {Button, Grid, Stack, Typography} from "@mui/material";
 import RadioButtonList from "../MUIComponents/RadioButtonList"
 import {canSeeDormStudents, getBreakouts} from "../../helpers";
 
+// userType:
+// type: string
+// can be "healthstaff", "schooladministrator", "admin" to grant access to student data
+// otherwise student data wont be visible
+// see helpers/canSeeDormStudents function
 const DormInfo = ({userType}) => {
 
     const [dorm, setDorm] = useState("50");
@@ -28,7 +33,6 @@ const DormInfo = ({userType}) => {
                     <Grid item alignItems="stretch" direction="column">
                         <RadioButtonList type={2} callback={setFloor} dorm={dorm}/>
                     </Grid>
-
                     {canSeeDormStudents(userType)
                         ? <Grid item alignItems="stretch" direction="column">
                             <RadioButtonList type={3} callback={setStudent} dorm={dorm} floor={floor}/>
