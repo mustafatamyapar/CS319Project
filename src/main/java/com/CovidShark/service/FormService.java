@@ -21,10 +21,11 @@ public class FormService {
         ApiFuture<DocumentSnapshot> future = docRef.get();
         // block on response
         DocumentSnapshot document = future.get();
-
+        Form form1 = new Form();
+        form1.addQuestions();
         if (document.exists()) {
             // convert document to POJO
-           Form form1 = document.toObject(Form.class);
+            form1 = document.toObject(Form.class);
             System.out.println(form1);
             return String.valueOf(form1.getFormDate());
         } else {

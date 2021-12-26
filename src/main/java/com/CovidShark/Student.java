@@ -34,7 +34,8 @@ public class Student extends BaseUser {
         prizePoints = 0;
 
         dorm = null;
-        form = new Form(java.time.LocalDate.now());
+        form = new Form();
+        form.addQuestions();
 
         coursesTaken = new ArrayList<Course>();
         sections = new ArrayList<Section>();

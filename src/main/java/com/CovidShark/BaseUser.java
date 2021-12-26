@@ -66,6 +66,20 @@ public class BaseUser {
 
     }
 
+    public BaseUser(){
+
+    }
+
+    public void initiateConstructor(String idNumber, String name, String email, String phoneNumber){
+        this.idNumber = idNumber;
+        this.name = name;
+        this.email = email;
+        this.password = null;
+        this.phoneNumber = phoneNumber;
+        healthStatus = null;
+        this.notifications = new ArrayList<Notification>();
+        this.appointments = new ArrayList<Appointment>();
+    }
     /**
      * The getIdNumber() operation gets the id number of a specific user.
      * @return the id number of a user.
@@ -211,14 +225,6 @@ public class BaseUser {
         this.notifications = notifications;
     }
 
-    // healthStatus operations
-    /**
-     * The setHealthStatus(HealthStatus healthStatus) operation sets the health status.
-     */
-    public void setHealthStatus(HealthStatus healthStatus) {
-
-        this.healthStatus = healthStatus;
-    }
 
     /**
      * The getHealthStatus() operation gets the health status of a user.
