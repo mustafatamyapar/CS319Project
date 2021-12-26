@@ -92,7 +92,7 @@ const SignUp = () => {
             <TextField required style = {{width:350}} id="outlined-basic" label="Phone Number" variant="outlined" />
           </Grid>
           <Grid item xs={12} >
-            <TextField onChange={(event) =>{setRegisterPassword(event.target.value)}} required style = {{width:350}} id="outlined-basic" label="Password" variant="outlined" />
+            <TextField onChange={(event) =>{setRegisterPassword(event.target.value)}} required style = {{width:350}} id="outlined-basic" label="Password" type="password" variant="outlined" />
           </Grid>
           <Grid item xs={12}>
             <Button

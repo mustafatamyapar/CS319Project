@@ -47,7 +47,7 @@ export default function Login() {
                     flexDirection: 'column',
                     alignItems: 'center',
                 }}>
-                <img src={Image} />
+                <img src={Image} alt="image"/>
             </Box>
 
             <Grid
@@ -67,7 +67,7 @@ export default function Login() {
                     <TextField onChange={(event) =>{setLoginEmail(event.target.value)}} style = {{width:350}} id="outlined-basic" label="E-Mail/Bilkent ID" variant="outlined" />
                 </Grid>
                 <Grid item xs={12} >
-                    <TextField onChange={(event) =>{setLoginPassword(event.target.value)}} style = {{width:350}} id="outlined-basic" label="Password" variant="outlined" />
+                    <TextField onChange={(event) =>{setLoginPassword(event.target.value)}} style = {{width:350}} id="outlined-basic" label="Password" type="password" variant="outlined" />
                 </Grid>
                 <Grid item xs={12}>
                     <Button

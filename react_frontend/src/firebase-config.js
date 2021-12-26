@@ -3,13 +3,13 @@ import {getAuth} from "firebase/auth";
 import { getFirestore } from "firebase/firestore"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB9x7kDwhR466gCoClUllTNef6mHBSeZwQ",
-  authDomain: "covidshark-3b292.firebaseapp.com",
-  projectId: "covidshark-3b292",
-  storageBucket: "covidshark-3b292.appspot.com",
-  messagingSenderId: "646140014768",
-  appId: "1:646140014768:web:3d5e45ba27239a7db14b75",
-  measurementId: "G-X5N3TJC2EL"
+  apiKey: process.env.REACT_APP_APIKEY,
+  authDomain: process.env.REACT_APP_AUTHDOMAIN,
+  projectId: process.env.REACT_APP_PROJECTID,
+  storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
+  appId: process.env.REACT_APP_APPID,
+  measurementId: process.env.REACT_APP_MEASUREMENTID
 };
 
 const app = initializeApp(firebaseConfig);
