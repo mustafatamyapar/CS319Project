@@ -11,6 +11,9 @@ import com.google.firebase.cloud.FirestoreClient;
 
 import java.util.concurrent.ExecutionException;
 
+/**
+ * The DormService class.
+ */
 public class DormService {
     public static String saveDormDetails(Dormitory dormitory) throws ExecutionException, InterruptedException {
         Firestore dbFirestore = FirestoreClient.getFirestore();

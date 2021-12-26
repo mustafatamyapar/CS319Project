@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.time.LocalDate;
 import java.util.concurrent.ExecutionException;
 
+/**
+ * The FormController class.
+ */
 @RestController()
 @RequestMapping
 public class FormController {

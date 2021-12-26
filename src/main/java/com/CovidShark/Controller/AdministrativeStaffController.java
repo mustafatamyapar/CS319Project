@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.ExecutionException;
 
+/**
+ * The AdministrativeStaffController class.
+ */
 public class AdministrativeStaffController {
     @GetMapping("/getAdministrativeStaffDetails")
     public AdministrativeStaff getAdministrativeStaff(@RequestHeader AdministrativeStaff staff)throws InterruptedException, ExecutionException {

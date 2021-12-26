@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.ExecutionException;
 
+/**
+ * The SignupController class.
+ */
 @RestController()
 @RequestMapping
 public class SignupController {

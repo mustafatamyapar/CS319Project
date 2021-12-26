@@ -11,6 +11,9 @@ import com.google.firebase.cloud.FirestoreClient;
 
 import java.util.concurrent.ExecutionException;
 
+/**
+ * The HealthCenterStaff class.
+ */
 public class HealthCenterStaffService {
     public static String saveHealthCenterStaffDetails(HealthCenterStaff aHCStaff) throws ExecutionException, InterruptedException {
         Firestore dbFirestore = FirestoreClient.getFirestore();

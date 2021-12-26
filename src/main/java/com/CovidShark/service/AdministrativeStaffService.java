@@ -10,6 +10,9 @@ import com.google.firebase.cloud.FirestoreClient;
 
 import java.util.concurrent.ExecutionException;
 
+/**
+ * The AdministrativeStaffService class.
+ */
 public class AdministrativeStaffService {
     public static String saveAdministrativeStaff(AdministrativeStaff staff) throws ExecutionException, InterruptedException {
         Firestore dbFirestore = FirestoreClient.getFirestore();

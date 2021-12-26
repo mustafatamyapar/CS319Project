@@ -13,6 +13,9 @@ import com.CovidShark.BaseUser;
 
 import java.util.concurrent.ExecutionException;
 
+/**
+ * The UserSignupService class.
+ */
 public class UserSignupService {
 
 

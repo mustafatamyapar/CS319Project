@@ -13,6 +13,9 @@ import com.google.firebase.cloud.FirestoreClient;
 import java.time.LocalDate;
 import java.util.concurrent.ExecutionException;
 
+/**
+ * The FormService class.
+ */
 public class FormService {
     public static String getFormDate(String id) throws ExecutionException, InterruptedException {
         Firestore db = FirestoreClient.getFirestore();

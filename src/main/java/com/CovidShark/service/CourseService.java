@@ -13,7 +13,9 @@ import com.google.firebase.cloud.FirestoreClient;
 import java.util.concurrent.ExecutionException;
 
 
-
+/**
+ * The CourseService class.
+ */
 public class CourseService {
 
 

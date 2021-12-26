@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.ExecutionException;
 
+/**
+ * The CourseController class.
+ */
 @RestController()
 @RequestMapping
 public class CourseController {
