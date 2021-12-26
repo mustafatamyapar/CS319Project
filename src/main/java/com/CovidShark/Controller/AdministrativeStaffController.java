@@ -6,14 +6,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.ExecutionException;
 
-<<<<<<< Updated upstream
+
 /**
  * The AdministrativeStaffController class.
  */
-public class AdministrativeStaffController {
-=======
 public class  AdministrativeStaffController {
->>>>>>> Stashed changes
     @GetMapping("/getAdministrativeStaffDetails")
     public AdministrativeStaff getAdministrativeStaff(@RequestHeader String ID)throws InterruptedException, ExecutionException {
 

@@ -21,15 +21,12 @@ public class Salon {
      * The numberOfCurrentUsers integer holds the number of current users of a salon.
      */
     private int numberOfCurrentUsers;
-<<<<<<< Updated upstream
 
     /**
      * The salonCapacity integer holds the capacity of a salon.
      */
-    private int salonCapacity;
-=======
     private String salonCapacity;
->>>>>>> Stashed changes
+
 
     public Salon(String salonType, String salonCapacity) {
         this.salonType = salonType;
@@ -56,16 +53,13 @@ public class Salon {
     public String getSalonType() {
         return salonType;
     }
-<<<<<<< Updated upstream
 
     /**
      * The getSalonCapacity() operation gets the capacity of a salon.
      * @return the capacity of a salon.
      */
-    public int getSalonCapacity() {return salonCapacity;}
-=======
     public String getSalonCapacity() {return salonCapacity;}
->>>>>>> Stashed changes
+
 
     /**
      * The getLastUsedTime() operation gets the last used time of a salon.
