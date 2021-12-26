@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * SectionFacade class for the FAÇADE design pattern.
+ */
 public class SectionFacade {
 
     //private List<Section> sections;
@@ -12,9 +15,7 @@ public class SectionFacade {
     //private List<SwapRequest> swapRequests;
     //private Student student;
 
-
-
-    public SectionFacade(){
+    public SectionFacade() {
         //sections = new ArrayList<Section>();
         //swapRequests = new ArrayList<SwapRequest>();
     }
@@ -24,20 +25,16 @@ public class SectionFacade {
         this.sections = sections;
     }
 
-
     public void setSwapRequests(List<SwapRequest> swapRequest) {
         this.swapRequests = swapRequests;
     }
 
      */
 
-
-
-
-
-
-
-
+    /**
+     * swapRequestExists(List<SwapRequest> swapRequests, int requestCode) operation checks if a swap request exists.
+     * @return true if operation is successful, false otherwise.
+     */
     private boolean swapRequestExists(List<SwapRequest> swapRequests, int requestCode){
         for (int i = 0; i < swapRequests.size(); i++)  {
             if (swapRequests.get(i).getNotificationCode() == requestCode)
@@ -46,6 +43,10 @@ public class SectionFacade {
         return false;
     }
 
+    /**
+     * swapRequestExists(List<SwapRequest> swapRequests, int requestCode) operation gets a swap request by its code.
+     * @return the swap request if operation is successful, null otherwise.
+     */
     private SwapRequest getSwapRequest(List<SwapRequest> swapRequests, int code) {
         for (int i = 0; i < swapRequests.size(); i++) {
             if (swapRequests.get(i).getNotificationCode() == code) {
@@ -55,6 +56,10 @@ public class SectionFacade {
         return null;
     }
 
+    /**
+     * bothHaveSeats(Student sender, Student receiver, Section section) checks if both students have proper seats.
+     * @return true if both students have seats, false otherwise.
+     */
     private boolean bothHaveSeats(Student sender, Student receiver, Section section){
         if ( sender != null && receiver != null && section != null  &&
                 section.getSeatingPlan().hasSeat(sender) && section.getSeatingPlan().hasSeat(receiver))
@@ -62,12 +67,17 @@ public class SectionFacade {
         else
             return false;
     }
-
+    /**
+     * private void addSwapRequest(List<SwapRequest> swapRequests,SwapRequest sR) operation adds a request.
+     */
     private void addSwapRequest(List<SwapRequest> swapRequests,SwapRequest sR){
         swapRequests.add(sR);
     }
 
-
+    /**
+     * getSection(List<Section> sections, String courseSection) operation gets a section.
+     * @return the sections if operation is successful, null otherwise.
+     */
     private Section getSection(List<Section> sections, String courseSection) {
         for (int i = 0; i < sections.size(); i++) {
             if (sections.get(i).getSectionNo().equals(courseSection)) {
@@ -77,8 +87,7 @@ public class SectionFacade {
         return null;
     }
 
-
-    // USER MANUEL.....
+    // USER MANUEL PART.....
     public boolean selectSeat(String seatNum, String sectionCode, List<Section> sections, Student s){
         for (int i = 0; i < sections.size(); i++){
             if (Objects.equals(sections.get(i).getSectionNo(), sectionCode)){
@@ -88,8 +97,6 @@ public class SectionFacade {
         }
         return false;
     }
-
-
 
     public void createSwapRequest(Student stu, String seatNo, List<Section> sections, String courseSection, List<SwapRequest> swapRequests) {
 
@@ -224,12 +231,10 @@ public class SectionFacade {
                 }
             }
 
-
             // send notification that swap request is accepted!!!
             String msg = "Your request for seat: " + sR.getSeat() + " in section: " + sR.getSection() + " is accepted!!!";
             Notification notification = new Notification(msg, "ACCEPTION", "SYSTEM");
             requester.addNotification(notification) ;
         }
     }
-
 }

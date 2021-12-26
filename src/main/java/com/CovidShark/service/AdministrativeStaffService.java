@@ -20,14 +20,15 @@ public class AdministrativeStaffService {
         return collectionsApiFuture.get().getUpdateTime().toString();
     }
 
-    public static AdministrativeStaff getAdministrativeStaff(AdministrativeStaff staff) throws InterruptedException, ExecutionException {
+    public static AdministrativeStaff getAdministrativeStaff(String idNumber) throws InterruptedException, ExecutionException {
         Firestore db = FirestoreClient.getFirestore();
-        DocumentReference docRef = db.collection("administrativeStaff").document(String.valueOf(staff));
+        DocumentReference docRef = db.collection("administrativeStaff").document(idNumber);
         // asynchronously retrieve the document
         ApiFuture<DocumentSnapshot> future = docRef.get();
         // block on response
         DocumentSnapshot document = future.get();
-        AdministrativeStaff admin = null;
+        AdministrativeStaff admin = new AdministrativeStaff();
+        admin.initAdmin(idNumber,document.getString("name"),document.getString("email"),document.getString("phoneNumber"));
         if (document.exists()) {
             // convert document to POJO
             admin = document.toObject(AdministrativeStaff.class);
@@ -47,10 +48,10 @@ public class AdministrativeStaffService {
         return collectionsApiFuture.get().getUpdateTime().toString();
     }
 
-    public static String deleteAdministrativeStaff(AdministrativeStaff staff) throws InterruptedException, ExecutionException {
+    public static String deleteAdministrativeStaff(String idNumber) throws InterruptedException, ExecutionException {
         Firestore db = FirestoreClient.getFirestore();
-        ApiFuture<WriteResult> writeResult = db.collection("administrativeStaff").document(String.valueOf(staff)).delete();
-        return "Deleted administrative staff " + staff;
+        ApiFuture<WriteResult> writeResult = db.collection("administrativeStaff").document(idNumber).delete();
+        return "Deleted administrative staff " + idNumber;
     }
 
 }

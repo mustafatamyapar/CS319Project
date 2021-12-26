@@ -47,4 +47,10 @@ public class DormService {
 
         return collectionsApiFuture.get().getUpdateTime().toString();
     }
+
+    public static String deleteDorm(String dormNumber) throws InterruptedException, ExecutionException {
+        Firestore db = FirestoreClient.getFirestore();
+        ApiFuture<WriteResult> writeResult = db.collection("baseUsers").document(dormNumber).delete();
+        return "Deleted User " + dormNumber;
+    }
 }

@@ -6,14 +6,15 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.ExecutionException;
 
+
 /**
  * The AdministrativeStaffController class.
  */
-public class AdministrativeStaffController {
+public class  AdministrativeStaffController {
     @GetMapping("/getAdministrativeStaffDetails")
-    public AdministrativeStaff getAdministrativeStaff(@RequestHeader AdministrativeStaff staff)throws InterruptedException, ExecutionException {
+    public AdministrativeStaff getAdministrativeStaff(@RequestHeader String ID)throws InterruptedException, ExecutionException {
 
-        return AdministrativeStaffService.getAdministrativeStaff(staff);
+        return AdministrativeStaffService.getAdministrativeStaff(ID);
     }
 
     @PostMapping("/createAdministrativeStaff")
@@ -27,7 +28,7 @@ public class AdministrativeStaffController {
     }
 
     @DeleteMapping("/deleteAdministrativeStaff")
-    public String deleteAdministrativeStaff(@RequestHeader AdministrativeStaff staff)throws InterruptedException, ExecutionException{
-        return AdministrativeStaffService.deleteAdministrativeStaff(staff);
+    public String deleteAdministrativeStaff(@RequestHeader String ID)throws InterruptedException, ExecutionException{
+        return AdministrativeStaffService.deleteAdministrativeStaff(ID);
     }
 }

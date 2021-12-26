@@ -35,6 +35,17 @@ public class Course {
         this.courseCoordinator = courseCoordinator;
     }
 
+    public Course(){
+
+    }
+
+    public void initializeC(String courseName, String courseCode, List<Section> courseSections, Instructor courseCoordinator){
+        this.courseName = courseName;
+        this.courseCode = courseCode;
+        this.courseSections = courseSections;
+        this.courseCoordinator = courseCoordinator;
+    }
+
     /**
      * The getCourseCoordinator() operation gets the coordinator of a course.
      * @return the coordinator of the course.

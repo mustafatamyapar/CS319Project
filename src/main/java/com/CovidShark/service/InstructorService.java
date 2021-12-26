@@ -29,7 +29,8 @@ public class InstructorService {
         ApiFuture<DocumentSnapshot> future = docRef.get();
         // block on response
         DocumentSnapshot document = future.get();
-        Instructor instructor = null;
+        Instructor instructor = new Instructor();
+        instructor.initIns(idNumber,document.getString("name"),document.getString("email"),document.getString("phoneNumber"));
         if (document.exists()) {
             // convert document to POJO
             instructor = document.toObject(Instructor.class);

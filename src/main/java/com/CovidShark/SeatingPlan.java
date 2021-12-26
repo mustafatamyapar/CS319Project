@@ -6,11 +6,12 @@ import java.util.Objects;
  * The SeatingPlan class.
  */
 public class SeatingPlan {
-
+    private int id;
     /**
      * The rowNum integer holds the row number.
      */
     private int rowNum;
+
 
     /**
      * The columnNum integer holds the column number.
@@ -31,6 +32,10 @@ public class SeatingPlan {
         this.rowNum = rowNum;
         this.columnNum = columnNum;
         seats = new Student[rowNum][columnNum];
+    }
+
+    public SeatingPlan(){
+
     }
 
     /**
@@ -106,6 +111,14 @@ public class SeatingPlan {
         }
         else
             return false;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     /**

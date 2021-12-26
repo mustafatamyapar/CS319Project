@@ -79,7 +79,11 @@ public class Student extends BaseUser {
 
     public Student(String idNumber, String name, String email, String phoneNumber) {
 
-        super(idNumber, name, email, phoneNumber);
+        this.setIdNumber(idNumber);
+        this.setName(name);
+        this.setEmail(email);
+        this.setPassword(null);
+
         this.about = "Hey I'm a student at Bilkent University";
         formSymptomNumber = 0;
         prizePoints = 0;
@@ -101,6 +105,39 @@ public class Student extends BaseUser {
         sectionFacade = new SectionFacade();
 
     }
+
+    public Student(){
+
+    }
+
+    public void init(String idNumber, String name, String email, String phoneNumber){
+
+        this.setIdNumber(idNumber);
+        this.setName(name);
+        this.setEmail(email);
+        this.setPassword(null);
+
+        this.about = "Hey I'm a student at Bilkent University";
+        formSymptomNumber = 0;
+        prizePoints = 0;
+
+        dorm = null;
+        form = new Form();
+        form.addQuestions();
+
+        coursesTaken = new ArrayList<Course>();
+        sections = new ArrayList<Section>();
+        roomHistory = new ArrayList<VisitedRoom>();
+        dailyRooms = new ArrayList<VisitedRoom>();
+
+        swapRequests = new ArrayList<SwapRequest>();
+        //seats = null;
+        consecutiveDays = new ArrayList<Integer>();
+        consecutiveForms = new ArrayList<Form>();
+
+        sectionFacade = new SectionFacade();
+    }
+
 
     // basic operations
 

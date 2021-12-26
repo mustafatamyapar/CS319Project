@@ -17,6 +17,13 @@ public class Gym {
         this.salons = salons;
     }
 
+    public Gym(){
+
+    }
+
+    public void initializeCons(){
+        this.salons = salons;
+    }
     /**
      * The getSalonUsers(String salonType) operation gets the salon users.
      * @return the number of current users in a salon of a gym.

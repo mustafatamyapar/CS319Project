@@ -25,9 +25,21 @@ public class Salon {
     /**
      * The salonCapacity integer holds the capacity of a salon.
      */
-    private int salonCapacity;
+    private String salonCapacity;
 
-    public Salon(String salonType, int salonCapacity) {
+
+    public Salon(String salonType, String salonCapacity) {
+        this.salonType = salonType;
+        lastUsedTime = null;
+        numberOfCurrentUsers = 0;
+        this.salonCapacity = salonCapacity;
+    }
+
+    public Salon(){
+
+    }
+
+    public void init(String salonType, String salonCapacity){
         this.salonType = salonType;
         lastUsedTime = null;
         numberOfCurrentUsers = 0;
@@ -46,7 +58,8 @@ public class Salon {
      * The getSalonCapacity() operation gets the capacity of a salon.
      * @return the capacity of a salon.
      */
-    public int getSalonCapacity() {return salonCapacity;}
+    public String getSalonCapacity() {return salonCapacity;}
+
 
     /**
      * The getLastUsedTime() operation gets the last used time of a salon.
