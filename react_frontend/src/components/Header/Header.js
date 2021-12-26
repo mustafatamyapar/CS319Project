@@ -109,7 +109,8 @@ const ResponsiveAppBar = () => {
                             <Button
                                 href={page === "Home" ? "/home"
                                     : ((page === "Logout") ? "/"
-                                        : "/*")}
+                                        : (page === "Points") ? "/dailyformdone"
+                                    : "/*")}
                                 key={page}
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'black', display: 'block' }} > {page}
