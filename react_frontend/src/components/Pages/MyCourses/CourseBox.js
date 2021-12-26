@@ -4,7 +4,7 @@ import Header from "../../Header/Header.js";
 import Line from "../../../images/line.png"
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
 
-const CourseBox = ({id, callback, course, isRequest}) => {
+const CourseBox = ({id, callback, course, isRequest, selectedSeat}) => {
     const [request, setRequest] = useState(false);
 
     const handleClick = () => {
@@ -77,6 +77,11 @@ const CourseBox = ({id, callback, course, isRequest}) => {
                                     >
                                         <Typography sx={{fontFamily: "Poppins", fontSize: 15}}>
                                             Seating Plan
+                                        </Typography>
+                                    </Grid>
+                                    <Grid item borderRadius={3} padding={0.5}>
+                                        <Typography sx={{fontFamily: "Poppins", fontSize: 15}}>
+                                            Selected seat: {selectedSeat}
                                         </Typography>
                                     </Grid>
                                 </Grid>
