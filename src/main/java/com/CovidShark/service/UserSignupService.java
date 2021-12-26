@@ -13,6 +13,9 @@ import com.CovidShark.BaseUser;
 
 import java.util.concurrent.ExecutionException;
 
+/**
+ * The UserSignupService class.
+ */
 public class UserSignupService {
 
 
@@ -25,16 +28,18 @@ public class UserSignupService {
     public static BaseUser getUserDetails(String idNumber) throws InterruptedException, ExecutionException {
         Firestore db = FirestoreClient.getFirestore();
         DocumentReference docRef = db.collection("baseUsers").document(idNumber);
+
         // asynchronously retrieve the document
         ApiFuture<DocumentSnapshot> future = docRef.get();
         // block on response
         DocumentSnapshot document = future.get();
-        BaseUser BaseUser = null;
+        BaseUser baseUser = new BaseUser();
+        baseUser.initiateConstructor(idNumber,document.getString("name"),document.getString("email"),document.getString("phoneNumber"));
         if (document.exists()) {
             // convert document to POJO
-            BaseUser = document.toObject(BaseUser.class);
-            System.out.println(BaseUser);
-            return BaseUser;
+            baseUser = document.toObject(BaseUser.class);
+            System.out.println(baseUser);
+            return baseUser;
         } else {
             System.out.println("No such document!");
             return null;

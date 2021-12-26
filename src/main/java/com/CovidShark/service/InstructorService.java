@@ -11,6 +11,9 @@ import com.google.firebase.cloud.FirestoreClient;
 
 import java.util.concurrent.ExecutionException;
 
+/**
+ * The InstructorService class.
+ */
 public class InstructorService {
 
     public static String saveInstructorDetails(Instructor instructor) throws ExecutionException, InterruptedException {

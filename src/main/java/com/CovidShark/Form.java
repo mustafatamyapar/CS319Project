@@ -1,5 +1,6 @@
 package com.CovidShark;
 
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,13 +20,14 @@ public class Form {
      * The symptomNumber integer holds the symptom numbers.
      */
     private int symptomNumber;
-
     /**
      * The formDate is a LocalDate which is built-in date of Java.
      */
-    private LocalDate formDate;
+    private String formDate;
+    private String id;
+    private static int formCode = 0;
 
-    public Form(LocalDate formDate) {
+    public Form(String formDate) {
         // questions will be hard-coded!!!
         this.questions = new ArrayList<Question>();
         questions.add( new Question(1, "Fever"));
@@ -40,22 +42,70 @@ public class Form {
         questions.add( new Question(10, "Has anyone been diagnosed with Covid in your home?"));
         questions.add( new Question(11, "Has anyone been diagnosed with Covid in your neighbour?"));
 
-        this.formDate = formDate;
+        LocalDate lD = LocalDate.now() ;
+        this.formDate = lD.toString();
+
+        System.out.println(lD);
+        System.out.println(formDate);
+
         symptomNumber = 0;
+
+        id = String.valueOf(formCode++);
+
+
     }
+
+    public Form(){
+
+    }
+
+    public void addQuestions(){
+        // questions will be hard-coded!!!
+        this.questions = new ArrayList<Question>();
+        questions.add( new Question(1, "Fever"));
+        questions.add( new Question(2, "Cough"));
+        questions.add( new Question(3, "Difficulty In Breathing"));
+        questions.add( new Question(4, "Throat Ache"));
+        questions.add( new Question(5, "Headache"));
+        questions.add( new Question(6, "Muscle Pain"));
+        questions.add( new Question(7, "Chest/Back Pain"));
+        questions.add( new Question(8, "Loss of Taste/Smell"));
+        questions.add( new Question(9, "Diarrhea"));
+        questions.add( new Question(10, "Has anyone been diagnosed with Covid in your home?"));
+        questions.add( new Question(11, "Has anyone been diagnosed with Covid in your neighbour?"));
+
+        symptomNumber = 0;
+
+        LocalDate lD = LocalDate.now() ;
+        this.formDate = lD.toString();
+
+        System.out.println(lD);
+        System.out.println(formDate);
+
+        id = String.valueOf(formCode++);
+
+
+    }
+
+    public String getId() {
+        return id;
+    }
+
 
     /**
      * The getFormDate() operation gets the date of a form.
      * @return the date of a form.
      */
     public LocalDate getFormDate() {
-        return formDate;
+
+        return LocalDate.now();
+       //return LocalDate.parse(formDate);
     }
 
     /**
      * The setFormDate(LocalDate formDate) operation sets the date of a form.
      */
-    public void setFormDate(LocalDate formDate) {
+    public void setFormDate(String formDate) {
         this.formDate = formDate;
     }
 

@@ -8,12 +8,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.ExecutionException;
 
+/**
+ * The CourseController class.
+ */
 @RestController()
 @RequestMapping
 public class CourseController {
     @GetMapping("/getCourseDetails")
     public Course getCourse(@RequestHeader String courseCode)throws InterruptedException, ExecutionException {
-
         return CourseService.getCourseDetails(courseCode);
     }
 

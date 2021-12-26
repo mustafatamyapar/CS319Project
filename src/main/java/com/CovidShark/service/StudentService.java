@@ -12,6 +12,9 @@ import com.google.firebase.cloud.FirestoreClient;
 
 import java.util.concurrent.ExecutionException;
 
+/**
+ * The StudentService class.
+ */
 public class StudentService {
 
     public static String saveStudentDetails(Student aStudent) throws ExecutionException, InterruptedException {

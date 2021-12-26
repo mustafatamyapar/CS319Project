@@ -7,26 +7,75 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The Student class extends the BaseUser class.
+ */
 public class Student extends BaseUser {
 
+    /**
+     * The about String holds the about information of a student.
+     */
     private String about;
+
+    /**
+     * The formSymptomNumber integer holds the form symptom number.
+     */
     private int formSymptomNumber;
+
+    /**
+     * The prizePoints integer holds the prize points.
+     */
     private int prizePoints;
+
+    /**
+     * The consecutiveDays integer list holds the consecutive days.
+     */
     ArrayList< Integer > consecutiveDays;
+
+    /**
+     * The consecutiveForms integer list holds the consecutive forms.
+     */
     ArrayList< Form > consecutiveForms;
+
+    /**
+     * The dorm object holds the dorm.
+     */
     private Dormitory dorm;
+
+    /**
+     * The form object holds the form.
+     */
     private Form form;
 
+    /**
+     * The coursesTaken course list holds the courses taken by a student.
+     */
     private List<Course> coursesTaken;
+
+    /**
+     * The sections section list holds the sections of a student.
+     */
     private List<Section> sections;
+
+    /**
+     * The roomHistory visited room list holds the room history of a student.
+     */
     private List<VisitedRoom> roomHistory;
+
+    /**
+     * The dailyRooms visited room list holds the daily rooms of a student.
+     */
     private List<VisitedRoom> dailyRooms;
+
+    /**
+     * The swapRequests swap request list holds the swap requests of a student.
+     */
     private List<SwapRequest> swapRequests;
+
+    /**
+     * The FAÇADE design pattern
+     */
     SectionFacade sectionFacade;
-    //private List<String> seats;
-
-
 
     public Student(String idNumber, String name, String email, String phoneNumber) {
 
@@ -36,7 +85,8 @@ public class Student extends BaseUser {
         prizePoints = 0;
 
         dorm = null;
-        form = new Form(java.time.LocalDate.now());
+        form = new Form();
+        form.addQuestions();
 
         coursesTaken = new ArrayList<Course>();
         sections = new ArrayList<Section>();
@@ -53,17 +103,35 @@ public class Student extends BaseUser {
     }
 
     // basic operations
+
+    /**
+     * The getAbout() operation gets the about of a student.
+     * @return the about.
+     */
     public String getAbout() {
         return about;
     }
+
+    /**
+     * The setAbout(String aboutDescription) sets the about of a student.
+     */
     public void setAbout(String aboutMeDescription) {
         about = aboutMeDescription;
     }
 
+    /**
+     * The getPrizePoint() operation gets the prize points of a student.
+     * @return the prize points.
+     */
     public int getPrizePoint() {
         return prizePoints;
     }
 
+    /**
+     * The usePrizePoints(int prizePoint) operation uses the prize points of a student.
+     * For example, student can buy coffee with the points.
+     * @return true if prizePoints <= pricePoints, false otherwise
+     */
     public boolean usePrizePoints(int pricePoint){
         if (prizePoints <= pricePoint){
             prizePoints = prizePoints - pricePoint;
@@ -73,10 +141,18 @@ public class Student extends BaseUser {
     }
 
     // form operations
+
+    /**
+     * The answerQuestion(boolean answer, int questionNum) operation answers a question.
+     */
     public void answerQuestion(boolean answer, int questionNum){
         form.answerQuestion(answer, questionNum);
     }
 
+    /**
+     * The submitForm() operation submits the form.
+     * @return true if all answers are answered, false otherwise.
+     */
     public boolean submitForm() {
         if (form.answeredAll()){
             formSymptomNumber = 0;
@@ -110,10 +186,19 @@ public class Student extends BaseUser {
 
     // resetting formSymptomNumber to zero after 5 days
     // request pcr test after ... days
+
+    /**
+     * The getCurrentSymptoms() operation gets the current symptoms of a student.
+     * @return the form symptom number.
+     */
     public int getCurrentSymptoms() {
         return formSymptomNumber;
     }
 
+    /**
+     * The warnUserForNotFilled() operation warns a user if the user has not filled and submitted the form in
+     * 5 consecutive days.
+     */
     public void warnUserForNotFilled(){
         LocalDate date1 = consecutiveForms.get(consecutiveForms.size() - 1).getFormDate();
         LocalDate date2 = consecutiveForms.get(consecutiveForms.size() - 2).getFormDate();
@@ -128,6 +213,9 @@ public class Student extends BaseUser {
         }
     }
 
+    /**
+     * The warnUserForSymptomNum() operation warns the user if the user has filled more than 15 symptoms in 5 days.
+     */
     public void warnUserForSymptomNum(){
         if(formSymptomNumber > 15)
         {
@@ -138,23 +226,44 @@ public class Student extends BaseUser {
     }
 
     // dorm operations
+
+    /**
+     * The setDorm(Dormitory dorm) operation sets the dorm.
+     */
     public void setDorm(Dormitory dorm){
         this.dorm = dorm;
     }
+
+    /**
+     * The getDorm(int dormNumber) operation gets the dorm.
+     * @return the dorm.
+     */
     public Dormitory getDorm(int dormNumber) {
         return dorm;
     }
+
+    /**
+     * The isStudentInDorm() operation checks if the student stays at dorms or not.
+     * @return if a student stays at dorm or not.
+     */
     public boolean isStudentInDorm() {
         return dorm == null;
     }
 
-
     // section op
 
+    /**
+     * The getSections() operation gets the sections.
+     * @return the sections.
+     */
     public List<Section> getSections() {
         return sections;
     }
 
+    /**
+     * The getSection(String courseSection) operation gets a single section.
+     * @return the section if operation is successful, null otherwise.
+     */
     public Section getSection(String courseSection) {
         for (int i = 0; i < sections.size(); i++) {
             if (sections.get(i).getSectionNo().equals(courseSection)) {
@@ -164,14 +273,25 @@ public class Student extends BaseUser {
         return null;
     }
 
+    /**
+     * The setSections(List<Section> sections) operation sets the sections.
+     */
     public void setSections(List<Section> sections) {
         this.sections = sections;
     }
 
+    /**
+     * The addSection(Section section) operation adds a section.
+     * @param section
+     */
     public void addSection(Section section){
         sections.add(section);
     }
 
+    /**
+     * The removeSection(String sectionNo) operation removes a section.
+     * @return true if section is removed, false otherwise.
+     */
     public boolean removeSection(String sectionNo){
         for (int i = 0; i < sections.size() ; i++)
         {
@@ -183,16 +303,28 @@ public class Student extends BaseUser {
         return false;
     }
 
-
     // course op
+
+    /**
+     * The getCoursesTaken() operation gets the courses taken by a student.
+     * @return the courses taken by a student.
+     */
     public List<Course> getCoursesTaken() {
         return coursesTaken;
     }
 
+    /**
+     * The setCourses(List<Course> coursesTaken) operation sets the courses taken by a student.
+     * @param coursesTaken
+     */
     public void setCourses(List<Course> coursesTaken) {
         this.coursesTaken = coursesTaken;
     }
 
+    /**
+     * The getcourse(String courseCode) operation gets the course with its course code.
+     * @return the course if operation is successful, null otherwise.
+     */
     public Course getCourse(String courseCode) {
         for(int i = 0 ; i < coursesTaken.size() ; i++)
         {
@@ -204,11 +336,17 @@ public class Student extends BaseUser {
         return null;
     }
 
-
+    /**
+     * The addCourse(Course course) operation adds a course.
+     */
     public void addCourse(Course course){
        coursesTaken.add(course);
     }
 
+    /**
+     * The removeCourse(String courseCode) operation removes a course.
+     * @return true if remove operation is successful, false otherwise.
+     */
     public boolean removeCourse(String courseCode){
         for (int i = 0; i < coursesTaken.size() ; i++)
         {
@@ -221,12 +359,18 @@ public class Student extends BaseUser {
         return false;
     }
 
-
     // room history op
+
+    /**
+     * The addRoomToHistory(VisitedRoom room) operation adds a room to the history.
+     */
     public void addRoomToHistory(VisitedRoom room) {
         dailyRooms.add(room);
     }
 
+    /**
+     * The submitRoomHistory() submits a room history.
+     */
     public void submitRoomHistory() {
         prizePoints = prizePoints + 10;
         roomHistory.addAll(dailyRooms);
@@ -235,6 +379,10 @@ public class Student extends BaseUser {
 
     //Seat op
 
+    /**
+     * The swapRequestExists(int requestCode) checks if a given swap request exists or not.
+     * @return true if swap request exists, false otherwise.
+     */
     public boolean swapRequestExists(int requestCode){
         for (int i = 0; i < swapRequests.size(); i++)  {
             if (swapRequests.get(i).getNotificationCode() == requestCode)
@@ -243,6 +391,10 @@ public class Student extends BaseUser {
         return false;
     }
 
+    /**
+     * The getSwapRequest(int code) operation gets a swap request with its code.
+     * @return the code if operation is successful, false otherwise.
+     */
     public SwapRequest getSwapRequest(int code) {
         for (int i = 0; i < swapRequests.size(); i++) {
             if (swapRequests.get(i).getNotificationCode() == code) {
@@ -252,6 +404,11 @@ public class Student extends BaseUser {
         return null;
     }
 
+    /**
+     * The bothHaveSeats(Student sender, Student receiver, Section section) operation checks if bpth students have a
+     * proper seat in order to be swapped.
+     * @return true if both students have seats, false otherwise.
+     */
     public boolean bothHaveSeats(Student sender, Student receiver, Section section){
         if ( sender != null && receiver != null && section != null  &&
                 section.getSeatingPlan().hasSeat(sender) && section.getSeatingPlan().hasSeat(receiver))
@@ -260,14 +417,25 @@ public class Student extends BaseUser {
             return false;
     }
 
+    /**
+     * The addSwapRequest(SwapRequest sR) operation adds a swap request to the list.
+     */
     public void addSwapRequest(SwapRequest sR){
         swapRequests.add(sR);
     }
 
+    /**
+     * The getSwapRequests() operation gets all the swap requests.
+     * @return the swap requests list.
+     */
     public List<SwapRequest> getSwapRequests(){
         return swapRequests;
     }
 
+    /**
+     * The selectSeat(String seatNum, String sectionCode) operation selects the seat.
+     * @return the result if operation is successful, false otherwise.
+     */
     public boolean selectSeat(String seatNum, String sectionCode){
         for (int i = 0; i < sections.size(); i++){
             if (Objects.equals(sections.get(i).getSectionNo(), sectionCode)){
@@ -278,7 +446,9 @@ public class Student extends BaseUser {
         return false;
     }
 
-
+    /**
+     * The createSwapRequest(String seatNo, String courseSection) operation creates a swap request.
+     */
     public void createSwapRequest(String seatNo, String courseSection) {
 
         // find the student seating on desired seat
@@ -305,6 +475,10 @@ public class Student extends BaseUser {
         }
     }
 
+    /**
+     * The cancelSwapRequest(int requestCode) operation cancels a swap request made by the requester.
+     * @return true if canceling is successful, false otherwise.
+     */
     public boolean cancelSwapRequest(int requestCode) {
         if ( swapRequestExists(requestCode) ){
             // find the request from requester and delete it
@@ -335,7 +509,9 @@ public class Student extends BaseUser {
         return false;
     }
 
-    // Important: This will be done by owner/receiver
+    /**
+     * The rejectSwapRequest(int requestCode) operation rejects a swap request.
+     */
     public void rejectSwapRequest(int requestCode) {
         if ( swapRequestExists(requestCode) ){
             // find the request from me and delete it
@@ -371,6 +547,10 @@ public class Student extends BaseUser {
     }
 
     // Important: This will be done by owner/receiver
+
+    /**
+     * The acceptSwapRequest(int requestCode) operation accepts a swap request.
+     */
     public void acceptSwapRequest(int requestCode) {
 
              // make swap operation if request exists
@@ -420,13 +600,14 @@ public class Student extends BaseUser {
              }
     }
 
+    /**
+     * The rejectAllSwapRequests() operation rejects all swap requests.
+     */
     public void rejectAllSwapRequest() {
         for (int i = 0; i < swapRequests.size(); i++) {
             swapRequests.get(i).markAsRejected();
         }
     }
-
-
 
     // FACADE OPERATIONS
     public boolean selectSeatByFacade(String seatNum, String sectionCode){
@@ -451,6 +632,4 @@ public class Student extends BaseUser {
     public void acceptSwapRequestByFacade(int requestCode) {
         sectionFacade.acceptSwapRequest(swapRequests, requestCode, sections);
     }
-
-
 }

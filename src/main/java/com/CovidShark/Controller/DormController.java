@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.ExecutionException;
 
+/**
+ * The DormController class.
+ */
 @RestController
 @RequestMapping
 public class DormController {

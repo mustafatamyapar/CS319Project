@@ -13,6 +13,9 @@ import com.google.firebase.cloud.FirestoreClient;
 
 import java.util.concurrent.ExecutionException;
 
+/**
+ * The GymService class.
+ */
 public class GymService {
     public static String saveSalonDetails(Salon salon) throws ExecutionException, InterruptedException {
         Firestore dbFirestore = FirestoreClient.getFirestore();
