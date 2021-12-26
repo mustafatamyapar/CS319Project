@@ -42,6 +42,10 @@ public class VisitedRoom {
         date = formatter.format(new Date());
     }
 
+    public VisitedRoom(){
+
+    }
+
     /**
      * The getDate() operation gets the date.
      * @return the date.
