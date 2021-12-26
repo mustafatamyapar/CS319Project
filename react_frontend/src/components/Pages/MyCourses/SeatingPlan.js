@@ -1,4 +1,4 @@
-import {Box, Grid, Paper, Typography} from "@mui/material";
+import {Grid, Paper, Typography} from "@mui/material";
 import course from "../../../courses.json"
 import React, {useState} from "react";
 import line from "../../../images/line.png"
@@ -167,7 +167,7 @@ const SeatingPlan = ({studentId, id, callback}) => {
                                 Swap Seats
                             </Typography>
                         </Grid>
-                        <Grid item borderRadius={3} padding={0.5} onClick={updateSelectedSeat}
+                        <Grid item borderRadius={3} padding={0.5}
                               sx={{
                                   backgroundColor: "white",
                                   '&:hover': {
