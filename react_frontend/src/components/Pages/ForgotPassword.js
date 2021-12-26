@@ -41,8 +41,8 @@ const ForgotPassword = () => {
           </Button>
         </Grid>
         <Grid item>
-          <Link href="login" variant="body1">
-            Back to Log In Page
+          <Link href="/" variant="body1">
+            Back to Login Page
           </Link>
         </Grid>
       </Grid>
