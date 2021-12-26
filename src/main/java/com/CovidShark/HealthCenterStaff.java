@@ -16,6 +16,10 @@ public class HealthCenterStaff extends BaseUser {
         this.appointmentRequests = appointmentRequests;
     }
 
+    public HealthCenterStaff(){
+
+    }
+
     /**
      * The getUserById(int ID) operation gets the user by their id number.
      * @return the user.

@@ -12,6 +12,19 @@ public class AdministrativeStaff extends BaseUser {
         super(idNumber, name, email, phoneNumber);
     }
 
+
+    public AdministrativeStaff(){
+
+    }
+
+    public void initAdmin(String idNumber, String name, String email, String phoneNumber){
+        this.setIdNumber(idNumber);
+        this.setName(name);
+        this.setEmail(email);
+        this.setPhoneNumber(phoneNumber);
+    }
+
+
     /**
      * The getDormCovidInfo(int dormNumber) operation finds the dorm by the dorm number (for instance dorm 81) and get the residents
      * of that dorm and checks their covid status.

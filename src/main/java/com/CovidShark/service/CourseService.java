@@ -10,6 +10,7 @@ import com.google.cloud.firestore.WriteResult;
 import com.google.firebase.cloud.FirestoreClient;
 
 
+import java.sql.SQLOutput;
 import java.util.concurrent.ExecutionException;
 
 
@@ -33,7 +34,9 @@ public class CourseService {
         ApiFuture<DocumentSnapshot> future = docRef.get();
         // block on response
         DocumentSnapshot document = future.get();
-        Course aCourse = null;
+        System.out.println(document.getData());
+        Course aCourse = new Course();
+        //aCourse.initializeC(document.getString("courseName"),document.getString("courseCode"),document.getData(map courseSections),document.get("courseCoordinator") );
         if (document.exists()) {
             // convert document to POJO
             aCourse = document.toObject(Course.class);

@@ -20,7 +20,21 @@ public class Instructor extends BaseUser {
     private List<Section> sectionsGiven;
 
     public Instructor(String idNumber, String name, String email, String phoneNumber) {
+
         super(idNumber, name, email, phoneNumber);
+        this.coursesGiven = new ArrayList<Course>();
+        this.sectionsGiven = new ArrayList<Section>();
+    }
+
+    public Instructor(){
+
+    }
+
+    public void initIns(String idNumber, String name, String email, String phoneNumber){
+        this.setIdNumber(idNumber);
+        this.setName(name);
+        this.setEmail(email);
+        this.setPhoneNumber(phoneNumber);
         this.coursesGiven = new ArrayList<Course>();
         this.sectionsGiven = new ArrayList<Section>();
     }

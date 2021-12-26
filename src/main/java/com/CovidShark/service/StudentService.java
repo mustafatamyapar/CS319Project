@@ -30,7 +30,8 @@ public class StudentService {
         ApiFuture<DocumentSnapshot> future = docRef.get();
         // block on response
         DocumentSnapshot document = future.get();
-        Student aStudent = null;
+        Student aStudent = new Student();
+        aStudent.init(idNumber,document.getString("name"),document.getString("email"),document.getString("phoneNumber"));
         if (document.exists()) {
             // convert document to POJO
             aStudent = document.toObject(Student.class);

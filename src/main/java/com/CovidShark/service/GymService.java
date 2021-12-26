@@ -30,14 +30,15 @@ public class GymService {
         ApiFuture<DocumentSnapshot> future = docRef.get();
         // block on response
         DocumentSnapshot document = future.get();
-        Salon gymSalon = null;
+        Salon gymSalon = new Salon();
+        gymSalon.init(salonType,document.getString("salonCapacity"));
         if (document.exists()) {
             // convert document to POJO
             gymSalon = document.toObject(Salon.class);
             System.out.println(gymSalon);
             return gymSalon;
         } else {
-            System.out.println("No such salon!");
+            System.out.println("No such salon !");
             return null;
         }
     }

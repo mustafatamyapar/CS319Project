@@ -11,7 +11,6 @@ public class CovidSharkApplication {
 	public static void main(String[] args) {
 
 		SpringApplication.run(CovidSharkApplication.class, args);
-		Form form = new Form("26/12/21");
 	}
 
 }

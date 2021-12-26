@@ -42,6 +42,9 @@ public class Dormitory {
         this.floorCovidCount = 0;
     }
 
+    public Dormitory(){
+
+    }
     /**
      * The getDormNumber() operation gets the dorm number.
      * @return the dorm number.

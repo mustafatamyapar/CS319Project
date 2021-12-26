@@ -4,6 +4,7 @@ import com.CovidShark.Dormitory;
 import com.CovidShark.HealthCenterStaff;
 import com.CovidShark.service.DormService;
 import com.CovidShark.service.HealthCenterStaffService;
+import com.CovidShark.service.UserSignupService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.ExecutionException;
@@ -29,4 +30,8 @@ public class DormController {
         return DormService.updateDormDetails(dormitory);
     }
 
+    @DeleteMapping("/deleteDorm")
+    public String deleteDorm(@RequestHeader String dormNumber)throws InterruptedException, ExecutionException{
+        return UserSignupService.deleteUser(dormNumber);
+    }
 }
