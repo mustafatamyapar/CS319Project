@@ -26,8 +26,6 @@ public class Student extends BaseUser {
     SectionFacade sectionFacade;
     //private List<String> seats;
 
-
-
     public Student(String idNumber, String name, String email, String phoneNumber) {
 
         super(idNumber, name, email, phoneNumber);
