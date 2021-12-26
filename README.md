@@ -25,4 +25,4 @@ This project aims to create a safer campus environment for all members of the Bi
 - [onur](http://github.com/OnurVural)
 - [burak](http://github.com/burakozturk01)
 
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1e7734c0-7523-441c-8aa5-6a2f0a5ff719/deploy-status)](https://app.netlify.com/sites/covidshark/deploys)
