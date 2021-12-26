@@ -19,7 +19,7 @@ import EastSports from "./components/Pages/GymInfo/EastSports";
 import EastOpenAirSports from "./components/Pages/GymInfo/EastOpenAirSports";
 import MyProfile from "./components/Pages/MyProfile";
 import HealthStatus from "./components/Pages/HealthStatus";
-import MyCourses from "./components/Pages/MyCourses/CourseBox.js"
+import MyCourses from "./components/Pages/MyCourses/MyCourses";
 
 
 // Styles

@@ -24,6 +24,7 @@ const Home = () => {
 
                 <Grid item>
                     <Button
+                        href="/mycourses"
                         variant="outlined"
                         color = "secondary"
                         style={{ background: '#EFE9F4' }}

@@ -1,9 +1,129 @@
 {
-    "id": "CS319",
-    "name": "Object Oriented Programming",
-    
-
-
-
-
+    "21901841": {
+        "name": "Burak Öztürk",
+        "department": "CS",
+        "courses": {
+            "0": {
+                "id": "CS202",
+                "title": "Fundamental Structures of Computer Science II",
+                "instructor": "Can Alkan",
+                "section": 2
+            },
+            "1": {
+                "id": "CS224",
+                "title": "Computer Organization",
+                "instructor": "Fazlı Can",
+                "section": 2
+            },
+            "2": {
+                "id": "CS315",
+                "title": "Programming Languages",
+                "instructor": "Altay Güvenir",
+                "section": 3
+            },
+            "3": {
+                "id": "CS319",
+                "title": "Object-Oriented Software Engineering",
+                "instructor": "Eray Tüzün",
+                "section": 1
+            },
+            "4": {
+                "id": "GE251",
+                "title": "Collegiate Activities II",
+                "instructor": "-",
+                "section": 1
+            },
+            "5": {
+                "id": "MATH102",
+                "title": "Calculus II",
+                "instructor": "Ahmet Muhtar Güloğlu",
+                "section": 2
+            }
+        }
+    },
+    "21901865": {
+        "name": "Melis Atun",
+        "department": "CS",
+        "courses": {
+            "0": {
+                "id": "CS202",
+                "title": "Fundamental Structures of Computer Science II",
+                "instructor": "Can Alkan",
+                "section": 2
+            },
+            "1": {
+                "id": "CS315",
+                "title": "Programming Languages",
+                "instructor": "Altay Güvenir",
+                "section": 1
+            },
+            "2": {
+                "id": "CS319",
+                "title": "Object-Oriented Software Engineering",
+                "instructor": "Eray Tüzün",
+                "section": 2
+            },
+            "3": {
+                "id": "LAW313",
+                "title": "Business Law",
+                "instructor": "Hukukçu",
+                "section": 4
+            },
+            "4": {
+                "id": "MATH230",
+                "title": "Probability and Statistics for Engineers",
+                "instructor": "Matçı",
+                "section": 2
+            },
+            "5": {
+                "id": "SOC101",
+                "title": "Introduction to Sociology",
+                "instructor": "Sosyolog",
+                "section": 1
+            }
+        }
+    },
+    "21902856": {
+        "name": "Mustafa Efe Tamyapar",
+        "department": "CS",
+        "courses": {
+            "0": {
+                "id": "CS202",
+                "title": "Fundamental Structures of Computer Science II",
+                "instructor": "Can Alkan",
+                "section": 2
+            },
+            "1": {
+                "id": "CS315",
+                "title": "Programming Languages",
+                "instructor": "Altay Güvenir",
+                "section": 4
+            },
+            "2": {
+                "id": "CS319",
+                "title": "Object-Oriented Software Engineering",
+                "instructor": "Eray Tüzün",
+                "section": 2
+            },
+            "3": {
+                "id": "ECON108",
+                "title": "Principles of Macroeconomics",
+                "instructor": "Muhasebeci",
+                "section": 2
+            },
+            "4": {
+                "id": "LAW313",
+                "title": "Business Law",
+                "instructor": "Avukat",
+                "section": 3
+            },
+            "5": {
+                "id": "MATH230",
+                "title": "Probability and Statistics for Engineers",
+                "instructor": "Hesapçı",
+                "section": 2
+            }
+        }
+    }
 }
+
